@@ -7,10 +7,10 @@ permalink:           pretty
 # Setup
 title:               Poole
 tagline:             The Jekyll Butler
-url:                 http://getpoole.com
+url:                 http://leojkwan.github.io./
 paginate: 5
 paginate_path: "page:num"
-baseurl:             ""
+baseurl:             "http://leojkwan.github.io"
 
 # Assets
 #
