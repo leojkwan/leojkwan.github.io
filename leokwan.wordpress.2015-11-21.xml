@@ -17,13 +17,13 @@
  7. WordPress will then import each of the posts, pages, comments, categories, etc.
     contained in this file into your site.
 -->
-<!-- generator="WordPress.com" created="2015-11-21 19:23"-->
+<!-- generator="WordPress.com" created="2015-11-21 20:05"-->
 <rss version="2.0" xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wp="http://wordpress.org/export/1.2/">
   <channel>
 <title>Leo Kwan</title>
 <link>http://leojkwan.com</link>
 <description>Blog</description>
-<pubDate>Sat, 21 Nov 2015 19:23:47 +0000</pubDate>
+<pubDate>Sat, 21 Nov 2015 20:05:30 +0000</pubDate>
 <language>en</language>
 <wp:wxr_version>1.2</wp:wxr_version>
 <wp:base_site_url>http://wordpress.com/</wp:base_site_url>

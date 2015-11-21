@@ -1,0 +1,205 @@
+---
+layout: post
+title: Incorporating Youtube's Data API in your Xcode project.
+date: 2015-07-23 14:21:52.000000000 -04:00
+type: post
+published: true
+status: publish
+categories:
+- Code
+tags: []
+meta:
+  _thumbnail_id: '394'
+  _rest_api_published: '1'
+  _rest_api_client_id: "-1"
+  _publicize_job_id: '13010593950'
+  _oembed_626eb42ce929e21505949d7009d8c54b: "{{unknown}}"
+  _oembed_4fc9bf369d1e64f2504c359cd406f4a2: "{{unknown}}"
+  _oembed_7faf2493326bdd7a3a42d084e5aa6f14: "{{unknown}}"
+author:
+  login: leojkwan
+  email: leokwanbt14@gmail.com
+  display_name: Leo Kwan
+  first_name: ''
+  last_name: ''
+---
+<p>If you ever wanted to integrate youtube search and play capabilities into your iPhone app, you will eventually need to play around with Youtube’s Data API. Depending on the level of interaction you would like to have with a user, you may need to authorize requests with OAuth 2.0. But if you are just interested in searching and playing videos based on a particular query like this post, all you need to do is sign up for an API key on Google’s dev console. With just the free rate limit, you are allowed 5,000,00 requests per day, but as you will soon realize, those API calls can accrue pretty fast with even the most basic requests.</p>
+<p><!--more--><br />
+<strong>Go to Youtube’s Developer Console and request an API Key. </strong></p>
+<p><strong> <a href="https://leokwanblog.files.wordpress.com/2015/07/screen-shot-2015-07-23-at-9-13-31-am-line.png"><img class=" wp-image-311 aligncenter" src="{{ site.baseurl }}/assets/screen-shot-2015-07-23-at-9-13-31-am-line.png?w=300" alt="Screen Shot 2015-07-23 at 9.13.31 AM + Line" width="971" height="470" /><img class=" wp-image-312 aligncenter" src="{{ site.baseurl }}/assets/screen-shot-2015-07-23-at-9-13-50-am-line.png?w=300" alt="Screen Shot 2015-07-23 at 9.13.50 AM + Line" width="703" height="581" /></a></strong></p>
+<p>With just the free quota, you get 50 million units/day and 3000 requests/second/user.</p>
+<hr />
+<p><strong>Create a new project in Xcode with a single view application</strong></p>
+<p><strong>Pod Install the <a href="https://github.com/AFNetworking/AFNetworking">AFNetworking</a> CocoaPod.</strong></p>
+<p><img class=" size-medium wp-image-331 alignright" src="{{ site.baseurl }}/assets/apnetworking-8d7d5a447f3748c696d0b07fb43728f1.png?w=300" alt="AFNetworking" width="300" height="106" />I used AFNetworking to perform my HTTP requests for youtube’s JSON responses. Just about every app you see in the App store that connects to the internet utilizes this powerful cocoa pod that allow you to make HTTP requests in Objective C. It’s a great alternative to using NSURL Session, which is a slightly more tedious method to speak with the internet.<br />
+<strong>Create an APIClient class. </strong></p>
+<p>This client class will have two class methods, one for performing a youtube search, and the other for retrieving a video’s statistics (we’ll be getting total view count info in this demo.)</p>
+<p style="text-align:center;"><em>I also like to compartmentalize my class objects because it’s cleaner to read and operate with in the long run of a project. I will also create an API Key class that stores my API keys. That way, if I push my projects to the app store or leave it open source on Github, I can hide my private information from public eye with git ignore, a method in Git that excludes files that you prefer to have untracked.Bad things can happen with an exposed API key.</em></p>
+<hr />
+<h3 style="text-align:center;"><strong>Your 1st GET request.</strong></h3>
+<p>In our first GET request, all we want to do is get back the results in a video search query. The base URL for this standard call is:</p>
+<p><strong><span style="text-decoration:underline;">https://www.googleapis.com/youtube/v3/search</span></strong><br />
+All of the logic will take place in a GET request method. You will need to pass in the query for what you want to search, as will as a completion block that will accept what you get back from Youtube.</p>
+<p>This is an example class method I used for the GET Request:</p>
+<p>[code language="objc"]</p>
+<p>+(void) getVideosWithQuery:(NSString *)query completionBlock:(void (^) (NSDictionary *)) completionBlock;</p>
+<p>[/code]</p>
+<h5>To search Youtube with a specific query, you need several params:</h5>
+<p>1) part: snippet<br />
+2) q: query<br />
+3) API Key</p>
+<p>Within this method, create a dictionary for all the parameters you want to pass in. I my example dictionary, I have 4 keys: “part”, “q”, “order” and “key”. The additional order key is that my video query response will be ordered from highest to lowest view count.</p>
+<p>The “**part**” key is technically the only required param for making an API call to Youtube, but since we registered an API Key, we should pass in “**key**as well to guarantee our daily free rate of 5 million requests per day. Of course, the value for this key will be your API Key in string format: like so: @“key”: @“ThisIsMyAPIKeyICopiedAndPastedFromYoutube”.</p>
+<p>Here is the method call in full.</p>
+<p>[code language="objc"]<br />
+ +(void) getVideosWithQuery:(NSString *)query completionBlock:(void (^) (NSDictionary *)) completionBlock {<br />
+ NSString *YOUTUBE_SEARCH_URL = @&quot;https://www.googleapis.com/youtube/v3/search&quot;;</p>
+<p>NSDictionary *params = @{</p>
+<p> @&quot;part&quot; : @&quot;snippet&quot;,<br />
+ @&quot;q&quot;: query,<br />
+ @&quot;order&quot;: @&quot;viewCount&quot;,<br />
+ @&quot;key&quot; : YOUTUBE_API_KEY};</p>
+<p> AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</p>
+<p> [manager GET:YOUTUBE_SEARCH_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {<br />
+ NSLog(@&quot;%@&quot;, responseObject);<br />
+completionBlock(responseObject);<br />
+ } failure:^(NSURLSessionDataTask *task, NSError *error) {<br />
+ NSLog(@&quot;%@&quot;, error);<br />
+ }];</p>
+<p> }<br />
+[/code]</p>
+<hr />
+<h3></h3>
+<h3 style="text-align:center;"><strong>Your 2nd GET request.</strong></h3>
+<p>Currently, youtube’s Data API is in it’s third version. In the past, one API call would swoop up most of a video searches data and we would be done with it. In V3, you need to make another GET request to get the statistical information for a specific video such as view count. Seriously? Here’s the layout for API call points for Youtube</p>
+<p><a href="https://leokwanblog.files.wordpress.com/2015/07/screen-shot-2015-07-23-at-9-29-59-am.png"><img class=" wp-image-319 aligncenter" src="{{ site.baseurl }}/assets/screen-shot-2015-07-23-at-9-29-59-am.png?w=300" alt="param quota cost for stats" width="609" height="517" /></a></p>
+<p>If you add it all up, the total amount of requests for one action is tremendous. The first API response with a “snippet” request will cost 2 quota points, but for every video within that search query, I will need to spend an additional 2 points to access its statistical information like view count.</p>
+<p><strong>This is how what the second API request method would look like with AFNetworking.</strong></p>
+<p>[code language="objc"]<br />
++(void) getVideosStatsWithVideoID:(NSString *)videoID completionBlock:(void (^) (NSDictionary *)) completionBlock;<br />
+ [/code]</p>
+<p><strong>Notice the difference with the base URLs.</strong></p>
+<p>[code language="objc"]<br />
+NSString *const YOUTUBE_SEARCH_URL = @&quot;https://www.googleapis.com/youtube/v3/search&quot;;<br />
+NSString *const YOUTUBE_STATS_URL = @&quot;https://www.googleapis.com/youtube/v3/videos&quot;;<br />
+[/code]</p>
+<blockquote>
+<p style="text-align:left;"><em>In the second API call, you need to pass in the specific videoId that you get back in your first GET request and pass it into this second GET request.</em></p>
+</blockquote>
+<hr />
+<h3 style="text-align:center;"><strong>Your first JSON Response.</strong></h3>
+<p>Pass your response object into a completion block. If you get a successful request, you will get back a dictionary with a list of items and their snippet details like video name, channel name etc. Depending on what you need and the specific filters you would like in your search query, you can add and modify your params dictionary to suit your needs. Refer to <a href="https://developers.google.com/youtube/v3/docs/search/list" target="_blank">youtube's docs</a> for more info.</p>
+<p>Drag in a table view controller into your storyboard. Lets just make sure our API class methods are all set up right and that we are getting back a successful JSON response from youtube. Create a class for your table view controller and import your Youtube API Client into the TVC implementation file.</p>
+<p>In your viewDidLoad, call your getVideosWithQuery method:</p>
+<p>[code language="objc"]<br />
+[YouTubeAPIClient getVideosWithQuery:@&quot;Flatiron School&quot; completionBlock:^(NSDictionary *response) {<br />
+ NSLog(@&quot;%@&quot;,response);<br />
+ }];<br />
+[/code]</p>
+<h5><strong>We just want to log the response we get. I passed in “Flatiron School” in my query, and I got back a JSON response like this:</strong></h5>
+<p>[code language="objc"]</p>
+<p>items = (<br />
+{<br />
+etag = &quot;\&quot;iDqJ1j7zKs4x3o3ZsFlBOwgWAHU/3AMBW9rCtJUATL28IiCJO4NlsWk\&quot;&quot;;<br />
+id = {<br />
+kind = &quot;youtube#video&quot;;<br />
+videoId = &quot;v3w9BODR-Yg&quot;;<br />
+};<br />
+kind = &quot;youtube#searchResult&quot;;<br />
+snippet = {<br />
+channelId = UCedo9harMOgixvNhNB0sEyA;<br />
+channelTitle = FlatironSchoolNY;<br />
+description = &quot;Visit http://flatironschool.com/kodewithkarlie to learn more! Karlie, model and co-founder of Karlie's Kookies, started learning to code at Flatiron School in 2014.&quot;;<br />
+liveBroadcastContent = none;<br />
+publishedAt = &quot;2015-04-08T14:29:52.000Z&quot;;<br />
+thumbnails = {<br />
+default = {<br />
+url = &quot;https://i.ytimg.com/vi/v3w9BODR-Yg/default.jpg&quot;;<br />
+};<br />
+high = {<br />
+url = &quot;https://i.ytimg.com/vi/v3w9BODR-Yg/hqdefault.jpg&quot;;<br />
+};<br />
+medium = {<br />
+url = &quot;https://i.ytimg.com/vi/v3w9BODR-Yg/mqdefault.jpg&quot;;<br />
+};<br />
+};<br />
+title = &quot;#KodeWithKarlie&quot;;<br />
+};</p>
+<p>[/code]</p>
+<p>So we’re getting a ton of valuable information in what is considered a “snippet” for Youtube. Notice you get back a video’s URL identifier, the image thumbnail URL, the video title, and the channel name that posted the video. That’s awesome, but all of there details are buried in one big JSON response, or what I see as an array of dictionaries within dictionaries within dictionaries. This calls for some JSON spelunking. We need to somehow take the endpoints we need and bundle it all up—</p>
+<h5>Let’s make a separate youtube video class.</h5>
+<p>In this class, the video will have several properties, specifically the properties we want displayed in our table view controller.<br />
+It should look something like this in your header file:</p>
+<p>[code language="objc"]</p>
+<p>@property (nonatomic, strong) NSString *titleOfVideo;<br />
+@property (nonatomic, strong) NSString *titleOfChannel;<br />
+@property (nonatomic, strong) NSString *videoID;<br />
+@property (nonatomic, strong) NSString *totalViews;<br />
+@property (nonatomic, strong) NSString *thumbnailURL;</p>
+<p>[/code]</p>
+<p>We will also need a class method that instantiates a Youtube Video object with the values we get back from youtube plugged into the object’s properties. That would look something like this in the implementation file:</p>
+<p>[code language="objc"]</p>
+<p>+(YoutubeVideo *) videoFromDictionary:(NSDictionary *) videoDictionary {</p>
+<p>YoutubeVideo *video = [[YoutubeVideo alloc] init];</p>
+<p>video.titleOfVideo = videoDictionary[@&quot;snippet&quot;][@&quot;title&quot;];<br />
+video.titleOfChannel = videoDictionary[@&quot;snippet&quot;][@&quot;channelTitle&quot;];<br />
+video.videoID = videoDictionary[@&quot;id&quot;][@&quot;videoId&quot;];<br />
+video.totalViews = videoDictionary[@&quot;snippet&quot;][@&quot;&quot;];<br />
+video.thumbnailURL = videoDictionary[@&quot;snippet&quot;][@&quot;thumbnails&quot;][@&quot;high&quot;][@&quot;url&quot;];</p>
+<p>return video;<br />
+}</p>
+<p>[/code]</p>
+<h5><strong>Make an NSMutable Array in your table view controller to capture our video results.</strong></h5>
+<p>So we created a separate youtube video class. We need to create a for loop within our GET request’s completion block, where we previously NSLogged our JSON response, to capture and and instantiate youtube video objects based on what we get back from youtube. If you took a close look at what your console logged for the response object from youtube, you will notice that we get back <strong>one</strong> big dictionary with <strong>one</strong> big array, with <strong>many</strong> dictionaries within it. Each of those dictionaries encapsulate one video result from youtube.</p>
+<blockquote><p>Because they are in an array, we can loop through them and pick out what we need to create a youtube video object. Lets make an NSMutableArray outside our method call. Afterwards, call your YoutubeAPIClient class method and plug the response values into a video instance within a for loop.</p></blockquote>
+<p>[code language="objc"]</p>
+<p>[YouTubeAPIClient getVideosWithQuery:@&quot;Flatiron School&quot; </p>
+<p>completionBlock:^(NSDictionary *response) { </p>
+<p>for (NSDictionary *video in response[@&quot;items&quot;]) {</p>
+<p> NSLog(@&quot;%@&quot;,response);</p>
+<p> YoutubeVideo *videoAtThisIndex = [YoutubeVideo videoFromDictionary:video]; </p>
+<p>[self.FISVideoResultsArray addObject:videoAtThisIndex];}</p>
+<p>[/code]</p>
+<hr />
+<h3 style="text-align:center;">In your cellForRowAtIndexPath, you will need to do <strong>three</strong> things.</h3>
+<h5>1) Instantiate your custom table view cell with a reuse ID name. Make sure you also set it in your storyboard.</h5>
+<p>[code language="objc"]</p>
+<p> YoutubeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@&quot;youtubeReuseCell&quot; forIndexPath:indexPath];<br />
+[/code]</p>
+<h5>2) Make instances of your youtube video object and set the videos to the items in your mutable array at their indexPath.row count.</h5>
+<p>[code language="objc"]<br />
+ YoutubeVideo *videoAtThisRow = self.FISVideoResultsArray[indexPath.row];<br />
+[/code]</p>
+<p><em>This ensures each cell in your table view corresponds to the exact order that your mutable array model displays.</em></p>
+<h5>3) Set the UILabels of your custom class to the properties you created for your Youtube object</h5>
+<p>[code language="objc"]<br />
+cell.videoTitleLabel.text =videoAtThisRow.titleOfVideo;<br />
+cell.channelNameLabel.text = videoAtThisRow.titleOfChannel;</p>
+<p>[/code]</p>
+<p><a href="https://leokwanblog.files.wordpress.com/2015/07/screen-shot-2015-07-22-at-3-07-02-pm-2-f17236ad3cf1482089eced8a2494df1e.png"><img class="alignnone wp-image-389" src="{{ site.baseurl }}/assets/screen-shot-2015-07-22-at-3-07-02-pm-2-f17236ad3cf1482089eced8a2494df1e.png?w=300" alt="import properties" width="828" height="389" /></a></p>
+<p>It’s a bit tricky with the thumbnail URL property because assuming you set a UIImageView in your custom table view cell, you will need to create a NSData instance with the imageURL, and then you’ll have to create a UIImage with that NSData. With the UIImage, now you can set the image to the cell property.</p>
+<p>[code language="objc"]<br />
+NSURL* imageURL = [NSURL URLWithString:videoAtThisRow.thumbnailURL];<br />
+NSData *imageData = [NSData dataWithContentsOfURL:imageURL];<br />
+UIImage *image = [UIImage imageWithData:imageData];</p>
+<p>cell.videoThumbnail.image = image;<br />
+[/code]</p>
+<hr />
+<h4><strong>Make a second API request within the first request’s completion block.</strong></h4>
+<p>Within our first completion block, one of the properties we are setting into a newly made youtube video objects is the videoId. In my class file, I set the property as videoID. That’s going to be the argument our second API class method needs to get back statistical information. We will need to create another for loop, but since we’ve already dumped all the information we needed from the response object into a mutable array, we just have to loop over the array and pluck out each object’s videoId.</p>
+<p>[code language="objc"]<br />
+for(ATRYoutubeVideo *videoAtThisIndex in self.videoResultsWithQuery) {&lt;/pre&gt;</p>
+<p>[ATRYouTubeAPIClient getVideosStatsWithVideoID:videoAtThisIndex.videoID completionBlock:^(NSDictionary *response) {<br />
+NSLog(@&quot;%@&quot;, response);</p>
+<p>NSString *viewCountForThisVideo = response[@&quot;items&quot;][0][@&quot;statistics&quot;][@&quot;viewCount&quot;]; // The array we want will always be 0 because the completion block will always return just one</p>
+<p>videoAtThisIndex.totalViews = viewCountForThisVideo;</p>
+<p>[/code]</p>
+<p>Before we end leave this second completion block (which is in our first class method’s completion block), we need to reload our table view data on the main thread, ensuring that the table view will reload once the API response is finished. Otherwise, our table view will load in the storyboard before our API GET request is finished.</p>
+<h5>Add this into the end of your second class method’s completion block:</h5>
+<p>[code language="objc"]<br />
+[[NSOperationQueue mainQueue] addOperationWithBlock:^{&lt;/pre&gt;</p>
+<p>[self.youtubeResultsTableView reloadData];<br />
+}];</p>
+<p>[/code]</p>
+<p>Assuming you passed in the Flatiron School like I did into your search query, you should get back something like this in your tableview controller.</p>
+<p>[wpvideo fgufQsso w= 300]</p>

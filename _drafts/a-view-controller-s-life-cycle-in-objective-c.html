@@ -1,0 +1,50 @@
+---
+layout: post
+title: A View Controller's life cycle in Objective-C
+date: 
+type: post
+published: false
+status: draft
+categories:
+- Code
+tags: []
+meta:
+  geo_public: '0'
+  _edit_last: '81371866'
+author:
+  login: leojkwan
+  email: leokwanbt14@gmail.com
+  display_name: Leo Kwan
+  first_name: ''
+  last_name: ''
+---
+<p>In iOS programming, it’s sometimes difficult to distinguish the division of labor between inherent methods that a UIViewController subclass calls on.</p>
+<p>Where should I call this method viewDidLoad, or viewWillAppear? or viewDidAppear?</p>
+<p>##ViewDidLoad<br />
+ViewDidLoad is where you want to do anything only once. For example, if you're initializing any views programmatically, it should be done just once.</p>
+<p>#ViewWillAppear<br />
+The view controller calls ViewWillAppear every time a view's visibility changes. It occurs before a user gets to see anything, so this is a perfect time to prepare how your views get displayed.</p>
+<p>A great example of something you can put in viewWillAppear is a scrollToTop method for a Scroll View. It may be important to display the upper most content after a user pops back or dismisses a detail view.</p>
+<p>On the other hand, if you’re performing a network request that may take up to 2-3 seconds to pull down the view’s data, it would be preferable to place the network calls in ViewWillAppear</p>
+<p>##ViewDidAppear<br />
+Like ViewWillAppear, this method get called every time the view appears, but only after the view is displayed for the user. ViewDidAppear would be fantastic for calling network requests because at least you leave the user with something to look at as he/she waits for the view to completely populate with data/images. If provides a responsive user experience instead of a frozen view as this view controller is getting segued in. Like most popular and well-designed apps you use, you can display call a progress HUD in viewDidAppear on a background thread to maintain interaction with users.<br />
+## ViewDidDisappear</p>
+<p>The viewWillDisappear declaration is a handy method called by UIKit when your view controller exits from view. Many developers use viewDidDisappear to remove any instantiated observers from NSNotificationCenter. That way, you can be sure that the dismissed VC is no longer subscribed and listening for notification updates.</p>
+<pre>
+-(void) viewWillDisappear:(BOOL)animated {
+[super viewWillDisappear:animated];
+[[NSNotificationCenter defaultCenter] removeObserver:self
+name:@"aNotification"
+object:nil];
+}
+
+</pre>
+<p>Another use case for viewDidDisappear is pausing or stopping a functionality in your dismissing view controller. In my Muse App, I allowed users to determine whether they wanted the current song playing in their detail entry view controller to pause on dismissal. If they do, I call on the view controller’s music player instance to pause playback in viewDidDisappear.</p>
+<p>'' -(void)viewDidDisappear:(BOOL)animated {<br />
+'' [super viewDidDisappear:YES];<br />
+''<br />
+'' // PAUSE SONG IF SETTING IS YES<br />
+'' if ([MUSAutoPlayManager returnAutoPauseStatus] &amp;&amp; self.formattedPlaylistForThisEntry.count &gt; 0) {<br />
+'' [self.player pause];<br />
+'' }<br />
+'' }</p>

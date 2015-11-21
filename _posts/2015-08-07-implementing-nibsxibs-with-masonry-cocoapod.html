@@ -1,0 +1,130 @@
+---
+layout: post
+title: How to utilize Nibs/ Xibs for reusable views in Objective-C
+date: 2015-08-07 14:21:09.000000000 -04:00
+type: post
+published: true
+status: publish
+categories:
+- Code
+tags: []
+meta:
+  _rest_api_published: '1'
+  _rest_api_client_id: "-1"
+  _publicize_job_id: '13497337602'
+  _thumbnail_id: '464'
+author:
+  login: leojkwan
+  email: leokwanbt14@gmail.com
+  display_name: Leo Kwan
+  first_name: ''
+  last_name: ''
+---
+<p>For my group's final project here at The Flatiron School, we're making an app that connects travelers with locals who offer personalized, authentic tours of their city. You can think of it like an AirBnB app in that our app serves as a marketplace for users to present and book tours.</p>
+<p><!--more--></p>
+<p>We created a low fidelity wireframe sketch of our app and delegated its separate workflows amongst the four of us. Since I'm covering the user profile aspect of our app, I often need to reuse views like profile image, or a user info snippet. Because of that, I've been implementing nibs quite extensively throughout our app's overall design flow.</p>
+<p><a href="https://leokwanblog.files.wordpress.com/2015/08/screen-shot-2015-08-07-at-10-07-41-am.png"><img class=" wp-image-423 aligncenter" src="{{ site.baseurl }}/assets/screen-shot-2015-08-07-at-10-07-41-am.png?w=300" alt="Screen Shot 2015-08-07 at 10.07.41 AM" width="497" height="170" /></a></p>
+<p>At the Flatiron School, we started the program with storyboards. It was my bread and butter, and I didn't want to leave it, solely because I had no idea how else I'd something in my view controller. It's rare to see iOS tutorials these days that do not go straight to storyboard, rather than working programmatically or with nibs. And why would they? The Storyboard GUI is convenient to use and becoming more powerful each and every Xcode update.</p>
+<p>But the storyboard can get cramped and trying to figure out how all your layout constraints are properly set can become a nightmare real quick.<br />
+----</p>
+<p class="intro" style="text-align:left;">The Power of Nibs</p>
+<p>That's where nibs come in. You separate a single view into it's own class and nib file (basically a storyboard) and work from there.</p>
+<p>The caveat of displaying nibs on a view controller is that it doesn't solve the constraints that would lay in storyboard. Getting your nibs to display exactly the way you layered it from your nib view file can be just as difficult without additional help.</p>
+<p class="intro" style="text-align:left;">The Power of Masonry</p>
+<p>NSLayout Constraints- no thanks. VFL, maybe. Masonry, absolutely.</p>
+<p>Masonry makes setting constraints a whole lot easier. You can find the CocoaPod <a href="https://github.com/SnapKit/Masonry">here</a>. Nibs and Masonry work like a charm together. Better yet, masonry works well with just about any view that needs a constraint, nib on no nib.</p>
+<p>The example I will show is a generic profile view controller I made by programmatically stacking nibs together through masonry.</p>
+<p><strong>Step 1. Get your xib to show on your controller.</strong><br />
+Before you try and connect your data models to your nib file, just try and get the xib to properly appear in your desired view. The last thing you want to do is try and solve a poorly set nib view and incorrect data passing simultaneously. At that point, it becomes unclear what the real problem is.</p>
+<p><strong>Step 2. Create a xib file and its corresponding view files.</strong><br />
+You need three files. A xib, and a UIView subclass .h and .m.<br />
+Make sure they are all the same name. Well it doesn't really matter but you'll see later how keeping a unified name for all three files lead to reusable code snippets. And it looks cleaner. Just do it.</p>
+<p><a href="https://leokwanblog.files.wordpress.com/2015/08/screen-shot-2015-08-07-at-8-04-29-am-f840be4c10274391be9d03125bfb2cc4.png"><img class="aligncenter wp-image-416" src="{{ site.baseurl }}/assets/screen-shot-2015-08-07-at-8-04-29-am-f840be4c10274391be9d03125bfb2cc4.png?w=660" alt="Screen Shot 2015-08-07 at 8.04.29 AM.f840be4c10274391be9d03125bfb2cc4" width="427" height="250" /></a> <a href="https://leokwanblog.files.wordpress.com/2015/08/screen-shot-2015-08-07-at-8-04-40-am-045e5f706c494300a78bc0f7a59f7470.png"><br />
+</a> <a href="https://leokwanblog.files.wordpress.com/2015/08/screen-shot-2015-08-07-at-8-04-51-am-f7585250eabe441c84805944f5ba4a8d.png"><img class="aligncenter wp-image-419" src="{{ site.baseurl }}/assets/screen-shot-2015-08-07-at-8-04-51-am-f7585250eabe441c84805944f5ba4a8d.png?w=300" alt="Screen Shot 2015-08-07 at 8.04.51 AM.f7585250eabe441c84805944f5ba4a8d" width="430" height="250" /></a> <a href="https://leokwanblog.files.wordpress.com/2015/08/screen-shot-2015-08-07-at-8-04-58-am-4081624926a34972b1463375a3a2c13c.png"><img class="aligncenter wp-image-418" src="{{ site.baseurl }}/assets/screen-shot-2015-08-07-at-8-04-58-am-4081624926a34972b1463375a3a2c13c.png?w=660" alt="Screen Shot 2015-08-07 at 8.04.58 AM.4081624926a34972b1463375a3a2c13c" width="425" height="250" /></a></p>
+<h5>In your nib file...</h5>
+<p>1) Drag a UIView onto storyboard<br />
+2) Set the File Owner to the UIView subclass you just created, ideally with the same name as your nib<br />
+3) Set 3 methods into your view.</p>
+<p>[code language="objc"]<br />
+-(id)initWithCoder:(NSCoder *)aDecoder<br />
+ {<br />
+ self = [super initWithCoder:aDecoder];<br />
+ if(self) {<br />
+[self commonInit];<br />
+}</p>
+<p>return self;<br />
+}</p>
+<p>-(instancetype)initWithFrame:(CGRect)frame<br />
+{<br />
+self = [super initWithFrame:frame];<br />
+if(self) {<br />
+[self commonInit];<br />
+}</p>
+<p>return self;<br />
+}</p>
+<p>-(void)commonInit<br />
+{<br />
+[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self.class)<br />
+owner:self<br />
+options:nil];</p>
+<p>[self addSubview:self.userSnippetContentView];<br />
+}<br />
+[/code]</p>
+<p>initWithFrame and initWithCoder are standard methods that you must implement. The commonInit method can be called anything you'd like. I called it that because in this method, you are stating, "Load this nib which happens to have my name [NSStringFromClass(self.class)], AND I declare that I am owner of this nib.</p>
+<p>This code snippet only works if your files are named the same. If not, you will need to hardcode the name of your nib file at "loadNibNamed". With this design, you can reuse the majority of this .m file on similar xib files you project has. Pretty neat.</p>
+<p><strong>Instantiate nib into your view controller</strong></p>
+<p>[code language="objc"]<br />
+ TRVUserSnippetView *snippetView = [[TRVUserSnippetView alloc] init];<br />
+ [self.containerView addSubview:snippetView];<br />
+[/code]</p>
+<p>add the view into whatever view you want to display in on.</p>
+<p>--------</p>
+<p><strong>Here comes Masonry.</strong></p>
+<p>Pod install Masonry and import the .h file.</p>
+<p>[code language="objc"]<br />
+#import &lt;Masonry.h&gt;<br />
+[/code]</p>
+<p>Masonry is pretty intuitive. You call a block method called make constraints and set the top, left, and right edges to your superview.</p>
+<p>[code language="objc"]</p>
+<p>[snippetView mas_makeConstraints:^(MASConstraintMaker *make) {<br />
+make.top.equalTo(self.containerView.mas_top);<br />
+make.left.and.right.equalTo(self.containerView);<br />
+}];<br />
+[/code]</p>
+<p><a href="https://leokwanblog.files.wordpress.com/2015/08/screen-shot-2015-08-07-at-9-29-04-am-b0c3c92b983f4d6c87c0a678f50a158a.png"><img class="aligncenter wp-image-421 size-full" src="{{ site.baseurl }}/assets/screen-shot-2015-08-07-at-9-29-04-am-b0c3c92b983f4d6c87c0a678f50a158a.png" alt="Screen Shot 2015-08-07 at 9.29.04 AM.b0c3c92b983f4d6c87c0a678f50a158a" width="374" height="420" /></a><br />
+Boom. Awesome.</p>
+<p><strong>pass in the our user data model into the nib's text label.</strong></p>
+<p>Our app has a user bio class with all the properties we want to display on our xib.</p>
+<p>**Create a property of your class type and override the setter method**<br />
+In our project, we have a class called TRVUser that contains all relevant info about a logged in user.<br />
+We want to override the setter method for TRVUser so that when we set a specific user to our nib view, the data immediately gets passed into your nib's text labels, images, etc.<br />
+<strong>TRVUserSnippetView.h file</strong></p>
+<p>[code language="objc"]<br />
+@property (nonatomic, strong) TRVUser *userForThisSnippetView;<br />
+[/code]</p>
+<p><strong>TRVUserSnippetView.m file</strong></p>
+<p>[code language="objc"]</p>
+<p>-(void)setUserForThisSnippetView:(TRVUser *)userForThisSnippetView {</p>
+<p>_userForThisSnippetView = userForThisSnippetView;</p>
+<p>self.firstNameLabel.text = userForThisSnippetView.userBio.firstName;<br />
+self.lastNameLabel.text = userForThisSnippetView.userBio.lastName;<br />
+self.oneLinerLabel.text = userForThisSnippetView.userBio.userTagline;</p>
+<p>}</p>
+<p>[/code]</p>
+<p>We traverse through our user's "userbio" property, which contains the info we want like name, bio description etc.</p>
+<p>Run it again and now you will see:</p>
+<p><a href="https://leokwanblog.files.wordpress.com/2015/08/screen-shot-2015-08-07-at-9-28-33-am.png"><img class="aligncenter wp-image-422 size-full" src="{{ site.baseurl }}/assets/screen-shot-2015-08-07-at-9-28-33-am.png" alt="Screen Shot 2015-08-07 at 9.28.33 AM" width="373" height="375" /></a><br />
+Repeat this process a couple more times with Masonry. This is what we made.</p>
+<p><a href="https://leokwanblog.files.wordpress.com/2015/08/screen-shot-2015-08-07-at-7-22-12-am.png"><img class="aligncenter wp-image-427 " src="{{ site.baseurl }}/assets/screen-shot-2015-08-07-at-7-22-12-am.png?w=181" alt="Screen Shot 2015-08-07 at 7.22.12 AM" width="367" height="600" /></a><br />
+There constraints were made possible through masonry. The two main points to construct this "stack view" is to first append the top of each subsequent view to the last view's bottom constraint, then set the entire content's view bottom constraint to the last item's bottom constraint.</p>
+<hr />
+<h3 style="text-align:center;"><strong>Common mistakes I ran into working with masonry.</strong></h3>
+<p>1) add xib as subview of content view... THEN SET your Masonry constraints.<br />
+2) add root view to self in your nib .m file<br />
+This one is hard to grasp because the content view you dragged in appears to be at the top of your view hierarchy, at least in the document outline. But you still need to add this view as a subview of self. Just do it.</p>
+<p style="text-align:left;">3) Make edges equal to 0.<br />
+4) Color your xib backgrounds &amp; use the debug view hierarchy.</p>
+<p><a href="https://leokwanblog.files.wordpress.com/2015/08/screen-shot-2015-08-07-at-7-23-44-am-d1017b424ff146bc8e2c23948e066dca.png"><img class="alignnone wp-image-415" src="{{ site.baseurl }}/assets/screen-shot-2015-08-07-at-7-23-44-am-d1017b424ff146bc8e2c23948e066dca.png?w=300" alt="Screen Shot 2015-08-07 at 7.23.44 AM.d1017b424ff146bc8e2c23948e066dca" width="677" height="558" /></a></p>
+<p>Using the view debugger makes me feel like a badass detective analyzing a homicide case. Use is. The debugger is just so helpful in solving view hierarchical problems. Do not be fooled if you see nothing when your view controller compiles. Color your xibs and debug that view, because it may be very possible that your constraints are just wrong.</p>
+<hr />
+<p class="intro" style="text-align:center;">Your turn!</p>
