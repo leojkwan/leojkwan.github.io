@@ -5,11 +5,11 @@ permalink:           pretty
 # relative_permalinks: true
 
 # Setup
-title:               Poole
-tagline:             The Jekyll Butler
+title:               Leo Kwan
+tagline:             Blog
 url:                 http://leojkwan.github.io.
-paginate:            5
-paginate_path:       page:num
+paginate:            2
+paginate_path:       "page:num"
 # baseurl:             http://leojkwan.github.io
 
 # Assets
@@ -28,7 +28,7 @@ author:
 # Custom vars
 version:             2.0.0
 github:
-  repo:              https://github.com/poole/poole
+  repo:
 
-
-gems: [jekyll-paginate]
+# markdown: redcarpet
+# pygments: highlighter

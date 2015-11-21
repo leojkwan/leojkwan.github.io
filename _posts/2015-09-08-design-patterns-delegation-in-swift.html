@@ -20,8 +20,8 @@ author:
   display_name: Leo Kwan
   first_name: ''
   last_name: ''
+excerpt: 'Knowing what design pattern to implement in your code is one of the most important skills to have as a competent iOS developer.'
 ---
-<h4>Knowing what design pattern to implement in your code is one of the most important skills to have as a competent iOS developer.</h4>
 <p>No, design patterns have nothing to do with user interface or visual design-who would ever think that? -scratch head- Rather, they are reusable solutions that solve common problems, particularly with communication between objects in code.</p>
 <p>There are many powerful design patterns found in iOS development. For this blog post, I wanted to expand on the <strong>delegate pattern</strong> in iOS.<!--more--></p>
 <hr />
@@ -56,14 +56,17 @@ class someClass: LeoProtocol {<br />
   // implementation of this protocol function<br />
   }<br />
 }<br />
-[/code]</p>
+[/code]
+</p>
 <p>However, if you want to define a protocol with optional methods in Swift, you will need to declare an <strong>Objective-C</strong> protocol; the directive looks like this:</p>
-<p>[code language="objc"]<br />
-@objc protocol LeoProtocol {<br />
-    func coolFunction()<br />
-    optional func coolOptionalFunction()<br />
-}<br />
-[/code]</p>
+<p>
+{% highlight objc linenos %}
+@objc protocol LeoProtocol {
+    func coolFunction()
+    optional func coolOptionalFunction()
+{% endhighlight %}
+
+</p>
 <hr />
 <h2><b>Summary</b></h2>
 <p>In short, the general steps to defining a protocol in Swift are:</p>
