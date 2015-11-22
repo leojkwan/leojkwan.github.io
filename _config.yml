@@ -10,7 +10,7 @@ tagline:             Blog
 url:                 http://leojkwan.github.io.
 paginate:            2
 paginate_path:       "page:num"
-baseurl:             http://leojkwan.github.io
+baseurl:             ""
 
 # Assets
 #
