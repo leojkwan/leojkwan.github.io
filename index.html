@@ -5,16 +5,19 @@ title: Home
 
 <div class="posts">
 
-
   {% for post in paginator.posts %}
   <article class="post">
+    <!-- TITLE -->
     <h1 class="post-title">
       <a href="{{ site.baseurl }}{{ post.url }}">
         {{ post.title }}
       </a>
     </h1>
+    <!-- DATE STAMP -->
     <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date_to_string }}</time>
+    <!-- EXCERPT -->
       {{ post.excerpt }}
+      <hr/>
   </article>
   {% endfor %}
 </div>

@@ -15,8 +15,9 @@
   color: #303030;
 }
 .page-title,
-.post-title {
+.post-title{
   margin-top: 0;
+  margin-bottom: 10px;
 }
 
 // Meta data line below post title
@@ -26,6 +27,14 @@
   margin-bottom: 1rem;
   color: #9a9a9a;
 }
+
+// Excerpt
+.post-excerpt{
+  font-size: 120%;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
 
 
 // Related posts
