@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Incorporating Youtube's Data API in your Xcode project.
+title: "Incorporating Youtube's Data API in your Xcode project."
 date: 2015-07-23 14:21:52.000000000 -04:00
 type: post
 published: true
@@ -22,13 +22,13 @@ author:
   display_name: Leo Kwan
   first_name: ''
   last_name: ''
+excerpt: <p>If you ever wanted to integrate youtube search and play capabilities into your iPhone app, you will eventually need to play around with Youtube’s Data API.</p>
 ---
-<p>If you ever wanted to integrate youtube search and play capabilities into your iPhone app, you will eventually need to play around with Youtube’s Data API. Depending on the level of interaction you would like to have with a user, you may need to authorize requests with OAuth 2.0. But if you are just interested in searching and playing videos based on a particular query like this post, all you need to do is sign up for an API key on Google’s dev console. With just the free rate limit, you are allowed 5,000,00 requests per day, but as you will soon realize, those API calls can accrue pretty fast with even the most basic requests.</p>
-<p><!--more--><br />
-<strong>Go to Youtube’s Developer Console and request an API Key. </strong></p>
+<p>Depending on the level of interaction you would like to have with a user, you may need to authorize requests with OAuth 2.0. But if you are just interested in searching and playing videos based on a particular query like this post, all you need to do is sign up for an API key on Google’s dev console. With just the free rate limit, you are allowed 5,000,00 requests per day, but as you will soon realize, those API calls can accrue pretty fast with even the most basic requests.</p>
+<p><strong>Go to Youtube’s Developer Console and request an API Key.</strong></p>
 <p><strong> <a href="https://leokwanblog.files.wordpress.com/2015/07/screen-shot-2015-07-23-at-9-13-31-am-line.png"><img class=" wp-image-311 aligncenter" src="{{ site.baseurl }}/assets/screen-shot-2015-07-23-at-9-13-31-am-line.png?w=300" alt="Screen Shot 2015-07-23 at 9.13.31 AM + Line" width="971" height="470" /><img class=" wp-image-312 aligncenter" src="{{ site.baseurl }}/assets/screen-shot-2015-07-23-at-9-13-50-am-line.png?w=300" alt="Screen Shot 2015-07-23 at 9.13.50 AM + Line" width="703" height="581" /></a></strong></p>
 <p>With just the free quota, you get 50 million units/day and 3000 requests/second/user.</p>
-<hr />
+<hr/>
 <p><strong>Create a new project in Xcode with a single view application</strong></p>
 <p><strong>Pod Install the <a href="https://github.com/AFNetworking/AFNetworking">AFNetworking</a> CocoaPod.</strong></p>
 <p><img class=" size-medium wp-image-331 alignright" src="{{ site.baseurl }}/assets/apnetworking-8d7d5a447f3748c696d0b07fb43728f1.png?w=300" alt="AFNetworking" width="300" height="106" />I used AFNetworking to perform my HTTP requests for youtube’s JSON responses. Just about every app you see in the App store that connects to the internet utilizes this powerful cocoa pod that allow you to make HTTP requests in Objective C. It’s a great alternative to using NSURL Session, which is a slightly more tedious method to speak with the internet.<br />

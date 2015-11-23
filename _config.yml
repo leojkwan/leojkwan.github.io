@@ -11,6 +11,7 @@ url:                 http://leojkwan.github.io.
 paginate:            2
 paginate_path:       "page:num"
 baseurl:             ""
+gems: [jekyll-paginate]
 
 # Assets
 #
