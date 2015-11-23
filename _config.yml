@@ -7,7 +7,7 @@ permalink:           pretty
 # Setup
 title:               Leo Kwan
 tagline:             Blog
-url:                 http://leojkwan.github.io.
+url:                 http://leojkwan.github.io
 paginate:            5
 paginate_path:       "page:num"
 baseurl:             ""
@@ -30,6 +30,3 @@ author:
 version:             2.0.0
 github:
   repo:
-
-# markdown: redcarpet
-# pygments: highlighter
