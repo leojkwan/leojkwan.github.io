@@ -3,11 +3,22 @@ layout: default
 ---
 
 <article class="post">
+
+  {% include post-tags.html %}
+
   <h1 class="post-title">{{ page.title }}</h1>
   <time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">{{ page.date | date_to_string }}</time>
   <p class="post-excerpt">{{page.excerpt}}</p>
   {{content}}
+
+  <div class="date" style="margin-top:50px;">
+    Written on {{ page.date | date: "%B %e, %Y" }}
+  </div>
+
+
 </article>
+
+
 
 {% if site.related_posts != empty %}
 <aside class="related">
