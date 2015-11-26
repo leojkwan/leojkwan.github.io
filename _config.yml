@@ -1,7 +1,9 @@
 # Permalinks
 #
+
 # Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
+permalink:           /:title
+# permalink:           pretty
 # relative_permalinks: true
 
 # Setup
@@ -30,3 +32,6 @@ author:
 version:             2.0.0
 github:
   repo:
+
+
+markdown: kramdown
