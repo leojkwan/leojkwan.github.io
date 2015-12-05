@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#Presenting a blur view modal programmatically in Objective C'
+title: 'Presenting a blur view modal programmatically in Objective C'
 date: 2015-12-25 16:01:41.000000000 -04:00
 type: post
 published: true
@@ -15,6 +15,8 @@ tags:
 After I pushed the my first app Muse into the app store. I realized I left many users in some confusion with my app's main feature: tagging currently playing songs into your journal entry.
 
 As a developer, I've been staring at my code and storyboard for so much, I forgot how that novel feeling I once I had first started my project.
+
+<!--more-->
 
 ## The problem:
 When people begin writing an entry, they're welcomed with 3 icons in my toolbar.
