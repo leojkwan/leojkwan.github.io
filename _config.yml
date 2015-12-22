@@ -13,10 +13,8 @@ url:                 http://leojkwan.github.io
 paginate:            5
 paginate_path:       "page:num"
 baseurl:             ""
-gems: [jekyll-paginate]
+gems: [jekyll-paginate, jekyll-watch, jekyll-assets]
 
-# Assets
-#
 # We specify the directory for Jekyll so we can use @imports.
 sass:
   sass_dir:          _sass
@@ -35,3 +33,17 @@ github:
 
 
 markdown: kramdown
+
+
+#########################
+# Plugin: jekyll-assets #
+#########################
+
+# Assets Pipeline
+assets:
+  sources:
+    - _assets
+    - _assets/images
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _assets/fonts

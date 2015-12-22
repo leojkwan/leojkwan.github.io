@@ -16,8 +16,8 @@ title: Home
     <!-- DATE STAMP -->
     <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date_to_string }}</time>
     <!-- EXCERPT -->
-      {{ post.excerpt }}
-      <hr/>
+    {{ post.content | split:'<!--more-->' | first }}
+    <hr/>
   </article>
   {% endfor %}
 </div>
