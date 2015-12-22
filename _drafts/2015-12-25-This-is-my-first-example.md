@@ -22,42 +22,39 @@ As a developer, I've been staring at my code and storyboard for so much, I forgo
 When people begin writing an entry, they're welcomed with 3 icons in my toolbar.
 To me, the icons seemed very obvious; after all, I was the one who hooked up all the logic and user interface for the buttons. What don't you understand!?
 
-%% Show The Image.
-
 But with some constructive feedback from several friends and test users, I learned that a quick walkthrough or message was desperately needed in order for users to understand the functionality Muse uniquely offers.
 
 I needed a quick fix.
 
 I could have gone back to the drawing board to remap how I'd present the app more reasonably to make my apps purpose clearer, or I could just toss on a overlay message where needed. Since I needed a quick and easy way to inject a walkthrough note so, I went with the latter.
 
-This modal would present itself  when a user first creates an entry in my app.
+This modal would present itself when a user first creates an entry in my app.
+<img src="/assets/entry-walkthrough-modal.png" width="200">
 
-Here's how the code looks.
-
-%% Fill This in
 
 I figured this may not be the last time I would need a blur modal, so I created a class called MUSBlurOverlayViewController.h.
 
-'' Show the .h and describe it
-
 I also created the UI walkthrough view
-''
-'' /**
-''  * Quick entry walkthrough for users
-''  * writing an entry for the first time.
-''  */
-''
-'' #import <UIKit/UIKit.h>
-''
-'' @protocol WalkthroughDelegate <NSObject>
-'' -(void)dismissView;
-'' @end
-''
-'' @interface EntryWalkthroughView : UIView
-'' @property (nonatomic, assign) id <WalkthroughDelegate> delegate;
-''
-'' @end
-''
+{% highlight objc %}
+
+//EntryWalkthroughView.m
+
+/**
+ * Quick entry walkthrough for users
+ * writing an entry for the first time.
+ */
+
+#import <UIKit/UIKit.h>
+
+@protocol WalkthroughDelegate <NSObject>
+-(void)dismissView;
+@end
+
+@interface EntryWalkthroughView : UIView
+@property (nonatomic, assign) id <WalkthroughDelegate> delegate;
+
+@end
+{% endhighlight %}
 
 Here’s how it will look when presented.
 (img)
