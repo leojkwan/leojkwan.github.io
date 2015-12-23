@@ -22,18 +22,17 @@ sass:
 
 # About/contact
 author:
-  name:              Mark Otto
-  url:               https://twitter.com/mdo
-  email:             markdotto@gmail.com
+  name:              Leo Kwan
+  url:               https://twitter.com/leojkwan
+  email:             leojkwan@gmail.com
 
 # Custom vars
-version:             2.0.0
+version:             1.0.0
 github:
   repo:
 
 
 markdown: kramdown
-
 
 #########################
 # Plugin: jekyll-assets #

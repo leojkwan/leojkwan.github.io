@@ -10,7 +10,7 @@ layout: default
   {{ content }}
 </div>
 
-<div class="date" style="margin-top:50px;">
+<div class="date" style="padding-top:50px;">
   Written on {{ page.date | date: "%B %e, %Y" }}
 </div>
 
@@ -20,12 +20,12 @@ layout: default
   <ul class="related-posts">
     {% for post in site.related_posts limit:3 %}
       <li>
-        <h3>
+        <h4>
           <a href="{{ site.baseurl }}{{ post.url }}">
             {{ post.title }}
             <small>{{ post.date | date_to_string }}</small>
           </a>
-        </h3>
+        </h4>
       </li>
     {% endfor %}
   </ul>

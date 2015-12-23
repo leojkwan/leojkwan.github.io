@@ -12,6 +12,7 @@ tags:
 - example
 ---
 
+
 After I pushed the my first app Muse into the app store. I realized I left many users in some confusion with my app's main feature: tagging currently playing songs into your journal entry.
 
 As a developer, I've been staring at my code and storyboard for so much, I forgot how that novel feeling I once I had first started my project.
@@ -29,20 +30,19 @@ I needed a quick fix.
 I could have gone back to the drawing board to remap how I'd present the app more reasonably to make my apps purpose clearer, or I could just toss on a overlay message where needed. Since I needed a quick and easy way to inject a walkthrough note so, I went with the latter.
 
 This modal would present itself when a user first creates an entry in my app.
-<img src="/assets/entry-walkthrough-modal.png" width="200">
+<img src="https://s3-us-west-2.amazonaws.com/leojkwan/images/entry-walkthrough-modal.png" width="200">
 
 
 I figured this may not be the last time I would need a blur modal, so I created a class called MUSBlurOverlayViewController.h.
 
 I also created the UI walkthrough view
+
 {% highlight objc %}
 
 //EntryWalkthroughView.m
 
-/**
- * Quick entry walkthrough for users
- * writing an entry for the first time.
- */
+// Quick entry walkthrough for users
+// writing an entry for the first time.
 
 #import <UIKit/UIKit.h>
 
@@ -60,7 +60,9 @@ Here’s how it will look when presented.
 (img)
 %% Show image
 
-The most important point here is the **delegate** declared in the header.
+
+The most important point here is the [delegate]({% post_url 2015-09-08-design-patterns-delegation-in-swift %}) declared in the header.
+
 There needs to be some way for this custom view to communicate with my blur view controller, and the delegate design pattern will do just that. A delegate is something that acts on behalf of some other class; in this case, I want my view controller to do something, specifically dismissing a view, when my walkthrough view’s “okay” button is selected.
 
 In order for my view to be considered a delegate, I also declared a protocol, which is a set of tasks the delegate (my blur view controller) must perform to be considered the delegate. You’ll notice that my delegate type is of ‘WalkthroughDelegate’.

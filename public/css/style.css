@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Joanna Nova Light';
+  src: url("/assets/fonts/Joanna Nova Light.otf") format("opentype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+font-family: 'Semplicita Pro Medium';
+src: url("/assets/fonts/Semplicita Pro Medium.otf") format("opentype");
+font-style: normal;
+font-weight: normal;
+}
+
+@font-face {
+font-family: 'Semplicita Pro Regular';
+src: url("/assets/fonts/Semplicita Pro Regular.otf") format("opentype");
+font-style: normal;
+font-weight: normal;
+}
+
+@font-face {
+font-family: 'Semplicita Pro Light';
+src: url("/assets/fonts/Semplicita Pro Light.otf") format("opentype");
+font-style: normal;
+font-weight: normal;
+}
+
+.post-tags {
+  display: block;
+  text-align: right;
+  font-family: "Semplicita Pro Light";
+  padding-bottom: 50px;
+}
+
+
+
+@media only screen and (max-width: 500px) {
+  .responsive-image {
+    display: block;
+    float:none !important;
+    margin: 10% auto !important;
+    }
+}
