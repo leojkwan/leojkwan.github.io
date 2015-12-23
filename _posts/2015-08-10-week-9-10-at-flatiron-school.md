@@ -1,38 +1,43 @@
 ---
 layout: post
-title: Week 9 & 10 at Flatiron School.
+title: 'Week 9 & 10 at Flatiron School.'
 date: 2015-08-10 13:13:00.000000000 -04:00
 type: post
-published: true
 status: publish
-categories:
-- Code
 tags:
 - flatiron
-meta:
-  _publicize_job_id: '15440770239'
-  _thumbnail_id: '551'
-  _edit_last: '81371866'
-  geo_public: '0'
-author:
-  login: leojkwan
-  email: leokwanbt14@gmail.com
-  display_name: Leo Kwan
-  first_name: ''
-  last_name: ''
-excerpt: <h2 style="text-align:center;"><span style="text-decoration:underline;">Week 9</span></h2><p class="intro" style="text-align:center;">Traveler App</p><p><span style="line-height:1.5;">Week 9 is the start of project mode at the Flatiron School, and that entails developing an app of choice for 3 straight weeks with 3 other classmates. We sort of had a choice with what we are going to make; the deal is each team submits three ideas to our instructors so that they get the final word on what project to pursue. They, of course, have a better handle as to what work is viable and challenging enough for our 3 weeks time.</span><br/></p>
 ---
+
+
+
+## Week 9
+{: style="text-align:center;text-decoration:underline"}
+
+Traveler App
+{: style="text-align:center;line-height:1.5;"}
+
+
+Week 9 is the start of project mode at the Flatiron School, and that entails developing an app of choice for 3 straight weeks with 3 other classmates. We sort of had a choice with what we are going to make; the deal is each team submits three ideas to our instructors so that they get the final word on what project to pursue. They, of course, have a better handle as to what work is viable and challenging enough for our 3 weeks time.
+
+<!--more-->
 
 We just submitted our ideas to our instructors, and they are currently deciding which idea best fits our time and effort. The process was enjoyable since they had each team pitch its ideas to all 5 instructors Shark Tank style- that was funny. We came up with an idea to reinvent the tour-guide marketplace in which tourists can find specialty, off-the-beaten-path trips created by locals . We want to create an on demand spontaneous tour guide searching experience.
 
-<h5>Day 3 of Project Mode</h5>
+##### Day 3 of Project Mode
+
 <p>We've been making our app for 3 days, and I'm enjoying the process. We ran into our first merge conflicts yesterday on git. It was awful in the beginning, but I think we're getting the hang of it. Prior to project mode, I figured that my pace of learning would begin to slow down now that we no longer sit for lectures. That thought is so far from the truth.</p>
 <p>This weekend, I learned how to properly solve a merge conflict on Xcode; I learned how to integrate xibs, collection views, and tab bar views in my projects. It feels empowering self-sufficient and not always rely on our instructors!</p>
 <p style="text-align:center;"><strong>On to Week 10.</strong></p>
-<hr />
-<h2 style="text-align:center;">Week 10</h2>
-<p class="intro" style="text-align:center;">Nibbin' and Xibbin'</p>
-<p>
+
+<hr/>
+
+## Week 10
+{: style="text-align:center;text-decoration:underline"}
+
+Nibbin' and Xibbin;
+{: style="text-align:center;line-height:1.5;"}
+
+
 
 <br>
 
@@ -64,9 +69,8 @@ Your user agent does not support the HTML5 Video element.
 <br>
 
 
-# We have one more week left and we're beginning to feel the pressure.
+### We have one more week left and we're beginning to feel the pressure.
 <br>
-
 You can get a lot done coding for 5 days, but it's easy to assume a mission impossible coding sprint will get a 30% complete app done. It's not healthy to try— and on top of that, the goals to finish the 70% will more often end up not happening. I've been a victim of that too many times, and I wanted to make sure our team did not fall into that trap either. Let's finish next week strong.
 
 <br>

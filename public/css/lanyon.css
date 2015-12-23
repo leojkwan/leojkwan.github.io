@@ -71,11 +71,12 @@ body {
 
 html {
   font-family: "Joanna Nova Light", Georgia, "Times New Roman", serif;
-  text-align: justify;
+  text-align:justify;
 }
 
 h1 {
   font-family: "Semplicita Pro Medium", Helvetica, Arial, sans-serif;
+  text-align:left;
   font-weight: 400;
   color: #313131;
   letter-spacing: -.050rem;
@@ -83,6 +84,7 @@ h1 {
 
 h2, h3, h4, h5, h6 {
   font-family: "Semplicita Pro Regular", Helvetica, Arial, sans-serif;
+  text-align:left;
   font-weight: 400;
   color: #313131;
   /*letter-spacing: -.050rem;*/

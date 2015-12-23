@@ -3,26 +3,12 @@ layout: post
 title: 'iOS Design Patterns: Delegation'
 date: 2015-09-08 16:01:41.000000000 -04:00
 type: post
-published: true
-status: publish
-categories:
-- Code
 tags:
 - code
 - design pattern
-meta:
-  _publicize_job_id: '14567377035'
-  geo_public: '0'
-  _edit_last: '81371866'
-author:
-  login: leojkwan
-  email: leokwanbt14@gmail.com
-
-  first_name: ''
-  last_name: ''
 ---
 
-Kknowing what design pattern to implement in your code is one of the most important skills to have as a competent iOS developer.
+Knowing what design pattern to implement in your code is one of the most important skills to have as a competent iOS developer.
 <!--more-->
 
 
