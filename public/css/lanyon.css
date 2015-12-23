@@ -41,14 +41,9 @@
  */
 
 
-@font-face {
-  font-family: 'Joanna Nova Light';
-  src: url("/assets/fonts/Joanna Nova Light.otf") format("opentype");
-  font-style: normal;
-  font-weight: normal;
-}
 
-@font-face {
+
+/*@font-face {
 font-family: 'Semplicita Pro Medium';
 src: url("/assets/fonts/Semplicita Pro Medium.otf") format("opentype");
 font-style: normal;
@@ -67,7 +62,7 @@ font-family: 'Semplicita Pro Light';
 src: url("/assets/fonts/Semplicita Pro Light.otf") format("opentype");
 font-style: normal;
 font-weight: normal;
-}
+}*/
 
 html,
 body {
@@ -76,21 +71,23 @@ body {
 
 html {
   font-family: "Joanna Nova Light", Georgia, "Times New Roman", serif;
-  letter-spacing: .01rem;
+  text-align:justify;
 }
 
 h1 {
   font-family: "Semplicita Pro Medium", Helvetica, Arial, sans-serif;
+  text-align:left;
   font-weight: 400;
   color: #313131;
   letter-spacing: -.050rem;
 }
 
 h2, h3, h4, h5, h6 {
-  font-family: "Semplicita Pro Light", Helvetica, Arial, sans-serif;
+  font-family: "Semplicita Pro Regular", Helvetica, Arial, sans-serif;
+  text-align:left;
   font-weight: 400;
   color: #313131;
-  letter-spacing: -.050rem;
+  /*letter-spacing: -.050rem;*/
 }
 
 
