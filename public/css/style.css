@@ -34,11 +34,15 @@ font-weight: normal;
 }
 
 
-
+/**
+ * CSS For Mobile.
+ */
 @media only screen and (max-width: 500px) {
+
   .responsive-image {
     display: block;
     float:none !important;
     margin: 10% auto !important;
     }
+
 }

@@ -78,7 +78,7 @@ h1 {
   font-family: "Semplicita Pro Medium", Helvetica, Arial, sans-serif;
   text-align:left;
   font-weight: 400;
-  color: #313131;
+  color: #464F59;
   letter-spacing: -.050rem;
 }
 
@@ -86,7 +86,7 @@ h2, h3, h4, h5, h6 {
   font-family: "Semplicita Pro Regular", Helvetica, Arial, sans-serif;
   text-align:left;
   font-weight: 400;
-  color: #313131;
+  color: #464F59;
   /*letter-spacing: -.050rem;*/
 }
 
@@ -355,7 +355,7 @@ a.sidebar-nav-item:focus {
 .page-title,
 .post-title,
 .post-title a {
-  color: #303030;
+  color: #ac4142;
 }
 .page-title,
 .post-title {
