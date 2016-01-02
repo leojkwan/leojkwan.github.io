@@ -11,9 +11,8 @@ tags:
 Knowing what design pattern to implement in your code is one of the most important skills to have as a competent iOS developer.
 <!--more-->
 
-
-<p>No, design patterns have nothing to do with user interface or visual design-who would ever think that? -scratch head- Rather, they are reusable solutions that solve common problems, particularly with communication between objects in code.</p>
-<p>There are many powerful design patterns found in iOS development. For this blog post, I wanted to expand on the <strong>delegate pattern</strong> in iOS.<!--more--></p>
+<p> No, design patterns have nothing to do with user interface or visual design-who would ever think that? -scratch head- Rather, they are reusable solutions that solve common problems, particularly with communication between objects in code. </p>
+<p> There are many powerful design patterns found in iOS development. For this blog post, I wanted to expand on the <strong>delegate pattern</strong> in iOS.<!--more--></p>
 <hr />
 
 ## What it delegation?
@@ -59,7 +58,6 @@ class someClass: LeoProtocol {
 {% endhighlight %}
 
 <p>However, if you want to define a protocol with optional methods in Swift, you will need to declare an <strong>Objective-C</strong> protocol; the directive looks like this:</p>
-
 
 {% highlight swift %}
 @objc protocol LeoProtocol {

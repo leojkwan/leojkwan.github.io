@@ -1,32 +1,31 @@
 ---
 layout: post
-title: 'How to utilize Nibs/ Xibs for reusable views in Objective-C'
+title: 'HHow to utilize Nibs/ Xibs for reusable views in Objective-C'
 date: 2015-08-07 14:21:09.000000000 -04:00
 type: post
-published: true
 status: publish
 categories:
 - Code
 tags: []
-meta:
-  _rest_api_published: '1'
-  _rest_api_client_id: "-1"
-  _publicize_job_id: '13497337602'
-  _thumbnail_id: '464'
-author:
-  login: leojkwan
-  email: leokwanbt14@gmail.com
-  display_name: Leo Kwan
-  first_name: ''
-  last_name: ''
-excerpt: <p>For my group's final project here at The Flatiron School, we're making an app that connects travelers with locals who offer personalized, authentic tours of their city. You can think of it like an AirBnB app in that our app serves as a marketplace for users to present and book tours.</p>
 ---
-<p>We created a low fidelity wireframe sketch of our app and delegated its separate workflows amongst the four of us. Since I'm covering the user profile aspect of our app, I often need to reuse views like profile image, or a user info snippet. Because of that, I've been implementing nibs quite extensively throughout our app's overall design flow.</p>
-<p><a href="https://leokwanblog.files.wordpress.com/2015/08/screen-shot-2015-08-07-at-10-07-41-am.png"><img class=" wp-image-423 aligncenter" src="{{ site.baseurl }}/assets/screen-shot-2015-08-07-at-10-07-41-am.png?w=300" alt="Screen Shot 2015-08-07 at 10.07.41 AM" width="497" height="170" /></a></p>
-<p>At the Flatiron School, we started the program with storyboards. It was my bread and butter, and I didn't want to leave it, solely because I had no idea how else I'd something in my view controller. It's rare to see iOS tutorials these days that do not go straight to storyboard, rather than working programmatically or with nibs. And why would they? The Storyboard GUI is convenient to use and becoming more powerful each and every Xcode update.</p>
-<p>But the storyboard can get cramped and trying to figure out how all your layout constraints are properly set can become a nightmare real quick.<br />
-----</p>
-<p class="intro" style="text-align:left;">The Power of Nibs</p>
+
+#### For my group's final project here at The Flatiron School, we're making an app that connects travelers with locals who offer personalized, authentic tours of their city. Our app serves as a marketplace for users to present and book tours.
+
+<!--more-->
+<br>
+
+We created a low fidelity wireframe sketch of our app and delegated its separate workflows amongst the four of us. Since I'm covering the user profile aspect of our app, I often need to reuse views like profile image, or a user info snippet. Because of that, I've been implementing nibs quite extensively throughout our app's overall design flow.
+
+![](https://s3-us-west-2.amazonaws.com/leojkwan/images/xib-screenshot.png)
+{: class="responsive-image" style="margin:0 auto;width:75%;" }
+
+
+At the Flatiron School, we started the program with storyboards. It was my bread and butter, and I didn't want to leave it, solely because I had no idea how else I'd something in my view controller. It's rare to see iOS tutorials these days that do not go straight to storyboard, rather than working programmatically or with nibs. And why would they? The Storyboard GUI is convenient to use and becoming more powerful each and every Xcode update.
+But the storyboard can get cramped and trying to figure out how all your layout constraints are properly set can become a nightmare real quick.
+
+<br/>
+
+### The Power of Nibs
 <p>That's where nibs come in. You separate a single view into it's own class and nib file (basically a storyboard) and work from there.</p>
 <p>The caveat of displaying nibs on a view controller is that it doesn't solve the constraints that would lay in storyboard. Getting your nibs to display exactly the way you layered it from your nib view file can be just as difficult without additional help.</p>
 <p class="intro" style="text-align:left;">The Power of Masonry</p>

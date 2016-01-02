@@ -31,7 +31,7 @@ version:             1.0.0
 github:
   repo:
 
-exclude: ['node_modules',‘css’, ‘_scss’]
+exclude: ['node_modules', 'Gruntfile.js','package.json',‘css’, ‘_scss’]
 
 # Do not erase the css directory in the _site Output
 # folder each time it rebuilds.
