@@ -7,98 +7,128 @@ module.exports = function (grunt) {
   // Load all Grunt tasks that are listed in package.json automagically
   require('load-grunt-tasks')(grunt);
 
-
   grunt.initConfig({
-      pkg: grunt.file.readJSON('package.json'),
 
-      /**
-       * Uglifies shrinks my js.
-       */
+    pkg: grunt.file.readJSON('package.json'),
 
-      uglify : {
-        build: {
-          src: 'src/js/*.js',
-          dest: 'js/script.min.js'
-        },
-        dev: {
-          options: {
-            beautify:true,
-            mangle: false,
-            compress:false,
-            preserveComments: 'all'
-          },
-          src: 'src/js/*.js',
-          dest: 'js/script.min.js'
-        }
+    /**
+     * Shell commands for use in Grunt tasks.
+     */
+
+    shell: {
+      jekyllBuild: {
+        command: 'jekyll build'
       },
-      /**
-       * Live reload.
-       */
-       watch: {
-         js: {
-           files: ['src/js/*.js'],
-           tasks: ['uglify:dev']
-         }
-       },
+      jekyllServe: {
+        command: 'jekyll serve'
+      }
+    },
 
-       /**
-        * Concatenate css files.
-        */
-      //  cssmin: {
-      //    options: {
-      //      shorthandCompacting: false,
-      //      roundingPrecision: -1
-      //    },
-      //    target: {
-      //      files: {
-      //        'public/styles.css': [
-      //          'public/css/style.css',
-      //          'public/css/poole.css',
-      //          'public/css/lanyon.css',
-      //          'public/css/syntax.css'
-      //        ]
-      //      }
-      //    }
-      //  }
-
-      concat: {
+    connect: {
+      server: {
         options: {
-          separator: ';',
-        },
-        dist: {
-          src: [
-            'src/scss/style.scss',
-            'src/scss/poole.scss',
-            'src/scss/lanyon.scss',
-            'src/scss/syntax.scss',
-            'src/scss/tags.scss'
-         ],
-         dest: 'src/scss/styles.scss'
-        }
-      },
-
-      sass: {
-        dev: {
-          options: {
-            outputStyle: 'expanded'
-          },
-          files: {
-            'public/css/styles.css' : 'src/scss/styles.scss'
-          }
+          port: 4000,
+          base: '_site'
         }
       }
+    },
+
+    /**
+     * Uglifies shrinks my js.
+     */
+
+    uglify : {
+      build: {
+        src: 'src/js/*.js',
+        dest: 'js/script.min.js'
+      },
+      dev: {
+        options: {
+          beautify:true,
+          mangle: false,
+          compress:false,
+          preserveComments: 'all'
+        },
+        src: 'src/js/*.js',
+        dest: 'js/script.min.js'
+      }
+    },
+    /**
+     * Live reload.
+     */
+
+     watch: {
+       livereload: {
+         files: [
+           'src/js/*.js',
+           'src/scss/*.scss',
+           '_config.yml',
+             'index.html',
+             '_layouts/**',
+             '_posts/**'
+         ],
+         tasks: ['uglify:dev', 'concat', 'sass:dev', 'shell:jekyllBuild'],
+         options: {
+           livereload: true
+         }
+       },
+       js: {
+         files: ['src/js/*.js'],
+         tasks: ['uglify:dev']
+       },
+       css: {
+         files: ['src/scss/*.scss'],
+         tasks: ['sass:dev']
+       }
+     },
+
+    concat: {
+      options: {
+        separator: ';',
+      },
+      dist: {
+        src: [
+          'src/scss/style.scss',
+          'src/scss/poole.scss',
+          'src/scss/lanyon.scss',
+          'src/scss/syntax.scss',
+          'src/scss/tags.scss'
+       ],
+       dest: 'src/scss/styles.scss'
+      }
+    },
+
+    sass: {
+      dev: {
+        options: {
+          outputStyle: 'expanded'
+        },
+        files: {
+          'public/css/styles.css' : 'src/scss/styles.scss'
+        }
+      },
+      build: {
+        options: {
+          outputStyle: 'compressed'
+        },
+        files: {
+          'public/css/styles.css' : 'src/scss/styles.scss'
+        }
+      }
+    }
   });
 
   // Load the plugins!
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-sass');
 
-
   // During dev, the javascript will stay beautiful! 'grunt'
-  grunt.registerTask('default', ['uglify:dev', 'concat', 'sass:dev']);
+  grunt.registerTask('default', ['uglify:dev', 'concat', 'sass:dev', 'shell:jekyllBuild', 'connect', 'watch']);
 
-  // When deploying to prod.
-  grunt.registerTask('build', ['uglify:build']);
+  // When deploying to real site.
+  grunt.registerTask('build', ['uglify:build', 'concat', 'sass:dev', 'sass:build']);
 };
