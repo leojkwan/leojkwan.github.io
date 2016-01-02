@@ -36,34 +36,6 @@
 
 /* Prevent scroll on narrow devices */
 
-/*
- * My personal fonts
- */
-
-
-
-
-/*@font-face {
-font-family: 'Semplicita Pro Medium';
-src: url("/assets/fonts/Semplicita Pro Medium.otf") format("opentype");
-font-style: normal;
-font-weight: normal;
-}
-
-@font-face {
-font-family: 'Semplicita Pro Regular';
-src: url("/assets/fonts/Semplicita Pro Regular.otf") format("opentype");
-font-style: normal;
-font-weight: normal;
-}
-
-@font-face {
-font-family: 'Semplicita Pro Light';
-src: url("/assets/fonts/Semplicita Pro Light.otf") format("opentype");
-font-style: normal;
-font-weight: normal;
-}*/
-
 html,
 body {
   overflow-x: hidden;
@@ -71,6 +43,7 @@ body {
 
 html {
   font-family: "Joanna Nova Light", Georgia, "Times New Roman", serif;
+  line-height: 1.8;
   text-align:justify;
 }
 
@@ -87,7 +60,6 @@ h2, h3, h4, h5, h6 {
   text-align:left;
   font-weight: 400;
   color: #464F59;
-  /*letter-spacing: -.050rem;*/
 }
 
 

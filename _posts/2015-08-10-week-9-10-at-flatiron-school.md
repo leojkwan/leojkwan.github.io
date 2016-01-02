@@ -8,13 +8,11 @@ tags:
 - flatiron
 ---
 
-
-
 ## Week 9
-{: style="text-align:center;text-decoration:underline"}
+{: class="title-text" }
 
 Traveler App
-{: style="text-align:center;line-height:1.5;"}
+{: class="subtitle-text" }
 
 
 Week 9 is the start of project mode at the Flatiron School, and that entails developing an app of choice for 3 straight weeks with 3 other classmates. We sort of had a choice with what we are going to make; the deal is each team submits three ideas to our instructors so that they get the final word on what project to pursue. They, of course, have a better handle as to what work is viable and challenging enough for our 3 weeks time.
@@ -41,8 +39,8 @@ Nibbin' and Xibbin;
 
 <br>
 
-<img class="responsive-image" style="border:2px solid #f0f0f0;" style="float:right;margin: 5px 20px;
-" src="https://s3-us-west-2.amazonaws.com/leojkwan/images/alan_travelr.png?w=165" alt="Screen Shot 2015-10-03 at 1.46.29 PM" width="275" height="500"/>
+<img class="responsive-image" style="border:2px solid #f0f0f0;" style="float:right;margin: 5px 20px;"
+src="https://s3-us-west-2.amazonaws.com/leojkwan/images/alan_travelr.png?w=165" alt="Screen Shot 2015-10-03 at 1.46.29 PM" width="275" height="500"/>
 
 Our app is slowly coming together. It's become apparent that collaborating with 3 other developers can be extremely difficult. I came into this capstone project imagining that our app can and will be pushed to the app store. But as our lead instructor pointed out, the point of this project isn't meant for each group to divide work on what each person is best at. Rather, you should be focusing on what you suck at. And if that's the case, it becomes clear that our broader goals to experiment and learn are not conducive to getting this thing out in production. I'm sure it's possible; past students have done it<br />
 before, but not only did we shoot for the damn stars with this project idea, getting paid as a tour guide is illegal without a license. Yeah.
