@@ -63,6 +63,7 @@ module.exports = function (grunt) {
            'src/js/*.js',
            'src/scss/*.scss',
            '_config.yml',
+           'pages/**',
              'index.html',
              '_layouts/**',
              '_posts/**'

@@ -3,28 +3,21 @@ layout: page
 title: About
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+### Hi, I’m Leo and I’m a software developer writing about stuff I learn along the way.
 
-In the novel, *The Strange Case of Dr. Jekyll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
 
-There are currently two themes built on Poole:
-
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
-
-Learn more and contribute on [GitHub](https://github.com/poole).
+#### I love all things basketball and the future of wearable technology. I enjoy sharing what I know and especially learning from others; if you'd like to reach me about anything, my email is leojkwan@gmail.com!
+{: class="message"}
 
 ## Setup
 
-Some fun facts about the setup of this project include:
+Some fun facts about this site:
 
-* Built for [Jekyll](http://jekyllrb.com)
+* Built with [Jekyll](http://jekyllrb.com) and optimized with [Grunt](https://github.com/gruntjs/grunt)
 * Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
+* Written with [Atom](https://github.com/atom/atom), an amazing code editor from Github
 
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
+
+Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/leojkwan/leojkwan.github.io).
 
 Thanks for reading!
