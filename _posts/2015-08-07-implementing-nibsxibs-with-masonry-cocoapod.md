@@ -9,9 +9,9 @@ categories:
 tags: []
 ---
 
-#### For my group's final project here at The Flatiron School, we're making an app that connects travelers with locals who offer personalized, authentic tours of their city. Our app serves as a marketplace for users to present and book tours.
-
+For my group's final project here at The Flatiron School, we're making an app that connects travelers with locals who offer personalized, authentic tours of their city. Our app serves as a marketplace for users to present and book tours.
 <!--more-->
+
 <br>
 
 We created a low fidelity wireframe sketch of our app and delegated its separate workflows amongst the four of us. Since I'm covering the user profile aspect of our app, I often need to reuse views like profile image, or a user info snippet. Because of that, I've been implementing nibs quite extensively throughout our app's overall design flow.
@@ -23,6 +23,7 @@ We created a low fidelity wireframe sketch of our app and delegated its separate
 At the Flatiron School, we started the program with storyboards. It was my bread and butter, and I didn't want to leave it, solely because I had no idea how else I'd something in my view controller. It's rare to see iOS tutorials these days that do not go straight to storyboard, rather than working programmatically or with nibs. And why would they? The Storyboard GUI is convenient to use and becoming more powerful each and every Xcode update.
 But the storyboard can get cramped and trying to figure out how all your layout constraints are properly set can become a nightmare real quick.
 
+---
 
 ### The Power of Nibs
 <p>That's where nibs come in. You separate a single view into it's own class and nib file (basically a storyboard) and work from there.</p>
@@ -43,6 +44,8 @@ Before you try and connect your data models to your nib file, just try and get t
 You need three files. A xib, and a UIView subclass .h and .m.
 <br/>
 Make sure they are all the same name. Well it doesn't really matter but you'll see later how keeping a unified name for all three files lead to reusable code snippets. And it looks cleaner. Just do it.
+
+<br>
 
 ![](https://s3-us-west-2.amazonaws.com/leojkwan/images/xib-screenshot2.png)
 {: class="responsive-image" style="margin:0 auto;width:75%;" }
@@ -89,24 +92,25 @@ Make sure they are all the same name. Well it doesn't really matter but you'll s
 
 <br>
 
+---
+
 ### initWithFrame and initWithCoder.
 These are two standard methods that you must implement. The commonInit method can be called anything you'd like. I called it that because in this method, you are stating, "Load this nib which happens to have my name [NSStringFromClass(self.class)], AND I declare that I am owner of this nib.
 This code snippet only works if your files are named the same. If not, you will need to hardcode the name of your nib file at "loadNibNamed". With this design, you can reuse the majority of this .m file on similar xib files you project has. Pretty neat.
----
 
-### Instantiate nib into your view controller
+
+#### Instantiate nib into your view controller add the view into whatever view you want to display in on.
 
 {% highlight objc %}
 TRVUserSnippetView *snippetView = [[TRVUserSnippetView alloc] init];
 [self.containerView addSubview:snippetView];
 {% endhighlight %}
 
-add the view into whatever view you want to display in on.
-
+<br>
 
 ### Adding Masonry
 
-Pod install Masonry and import the .h file. Looking at the code snippet below, you'll notice Masonry's syntax is pretty intuitive. You call a block method called make constraints and set the top, left, and right edges to your superview.
+Pod install Masonry and import the .h file. Looking at the code snippet below, you'll notice Masonry's syntax is intuitive. You call a block method called make constraints and set the top, left, and right edges to your superview.
 
 {% highlight objc %}
 
@@ -157,31 +161,36 @@ Run it again and now you will see:
 {: class="responsive-image" style="margin:0 auto;width:75%;" }
 
 
-Repeat this process a couple more times with Masonry. This is what we made.</p>
+Repeat this process a couple more times with Masonry.
+
+### This is what we made.
+{: class="subtitle-text" }
 
 ![](https://s3-us-west-2.amazonaws.com/leojkwan/images/xib-screenshot7.png)
 {: class="responsive-image" style="margin:0 auto;width:75%;" }
 
-
-There constraints were made possible through masonry. The two main points to construct this "stack view" is to first append the top of each subsequent view to the last view's bottom constraint, then set the entire content's view bottom constraint to the last item's bottom constraint.</p>
+\\
+\\
+These constraints were made possible through masonry. The two main points to construct this "stack view" is to first append the top of each subsequent view to the last view's bottom constraint, then set the entire content's view bottom constraint to the last item's bottom constraint.</p>
 
 ---
-Common mistakes I ran into working with masonry.
+<br>
+
+### Common mistakes I ran into working with masonry.
 {: class="subtitle-text" }
 
-1. add xib as subview of content view... THEN SET your Masonry constraints.
-2.
-2. add root view to self in your nib .m file
-This one is hard to grasp because the content view you dragged in appears to be at the top of your view hierarchy, at least in the document outline. But you still need to add this view as a subview of self. Just do it.
-
-3. Make edges equal to 0.
-4. Color your xib backgrounds &amp; use the debug view hierarchy.
-5.
+- ####Add xib as subview of content view... THEN SET your Masonry constraints.
+- ####Add root view to self in your nib .m file
+  This one is hard to grasp because the content view you dragged in appears to be at the top of your view hierarchy, at least in the document outline. But you still need to add this view as a subview of self. Just do it.
+- ####Make edges equal to 0.
+- ####Color your xib backgrounds &amp; use the debug view hierarchy.
+\\
+\\
 ![](https://s3-us-west-2.amazonaws.com/leojkwan/images/xib-screenshot8.png)
 {: class="responsive-image" style="margin:0 auto;width:75%;" }
 
 <br>
-The debugger is just so helpful in solving view hierarchical problems. Do not be fooled if you see nothing when your view controller compiles. Color your xibs and debug that view, because it may be very possible that your constraints are just wrong.
+The debugger is so helpful in solving view hierarchical problems. Do not be fooled if you see nothing when your view controller compiles. Color your xibs and debug that view, because it may be very possible that your constraints are just wrong.
 
 Your turn!
 {: class="subtitle-text" }

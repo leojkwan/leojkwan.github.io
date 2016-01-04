@@ -60,7 +60,6 @@ In our tour guide project, I've also incorporated vertical and horizontal scroll
 
 <video controls height="500px" width="100%"
   src="https://s3-us-west-2.amazonaws.com/leojkwan/videos/scrolling-traveler.ogv">
-Your user agent does not support the HTML5 Video element.
 </video>
 
 <br>
