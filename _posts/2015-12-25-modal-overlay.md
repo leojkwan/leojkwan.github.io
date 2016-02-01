@@ -5,11 +5,8 @@ date: 2015-12-24 16:01:41.000000000 -04:00
 type: post
 published: true
 status: publish
-categories:
-- Code
 tags:
-- code
-- example
+- ios
 ---
 
 

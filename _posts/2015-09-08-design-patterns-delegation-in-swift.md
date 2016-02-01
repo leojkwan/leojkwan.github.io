@@ -4,8 +4,7 @@ title: 'iOS Design Patterns: Delegation'
 date: 2015-09-08 16:01:41.000000000 -04:00
 type: post
 tags:
-- code
-- design pattern
+- ios
 ---
 
 Knowing what design pattern to implement in your code is one of the most important skills to have as a competent iOS developer.

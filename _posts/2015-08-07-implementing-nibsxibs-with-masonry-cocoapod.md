@@ -4,9 +4,8 @@ title: 'How to utilize Nibs/ Xibs for reusable views in Objective-C'
 date: 2015-08-07 14:21:09.000000000 -04:00
 type: post
 status: publish
-categories:
-- Code
-tags: []
+tags:
+- ios
 ---
 
 For my group's final project here at The Flatiron School, we're making an app that connects travelers with locals who offer personalized, authentic tours of their city. Our app serves as a marketplace for users to present and book tours.
@@ -17,7 +16,7 @@ For my group's final project here at The Flatiron School, we're making an app th
 We created a low fidelity wireframe sketch of our app and delegated its separate workflows amongst the four of us. Since I'm covering the user profile aspect of our app, I often need to reuse views like profile image, or a user info snippet. Because of that, I've been implementing nibs quite extensively throughout our app's overall design flow.
 
 ![](https://s3-us-west-2.amazonaws.com/leojkwan/images/xib-screenshot.png)
-{: class="responsive-image" style="margin:0 auto;width:75%;" }
+{: class="responsive-image" style="margin:0 auto;width:75%;"}
 
 
 At the Flatiron School, we started the program with storyboards. It was my bread and butter, and I didn't want to leave it, solely because I had no idea how else I'd something in my view controller. It's rare to see iOS tutorials these days that do not go straight to storyboard, rather than working programmatically or with nibs. And why would they? The Storyboard GUI is convenient to use and becoming more powerful each and every Xcode update.

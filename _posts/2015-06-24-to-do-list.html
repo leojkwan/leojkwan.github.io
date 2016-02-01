@@ -5,24 +5,12 @@ date: 2015-06-24 03:27:27.000000000 -04:00
 type: post
 published: true
 status: publish
-categories:
-- Code
-tags: []
-meta:
-  _rest_api_client_id: "-1"
-  _publicize_job_id: '11976524438'
-  _rest_api_published: '1'
-  _thumbnail_id: '198'
-  _edit_last: '81371866'
-  geo_public: '0'
-author:
-  login: leojkwan
-  email: leokwanbt14@gmail.com
-  display_name: Leo Kwan
-  first_name: ''
-  last_name: ''
-excerpt: <p>Over the past week, I’ve been working on a small to-do list app that categorizes your personal tasks based on type and category. One of the bigger challenges I had while building my to-do list app was moving tasks around across different sections. And while Apple has its own proprietary method for managing and reordering its cells via an optional button, I wanted my cells to move based on button presses instead, specifically with the popular <a class="markup--anchor markup--p-anchor" href="https://github.com/CEWendel/SWTableViewCell">SWTableViewCell </a>cocoapod.</p>
+
+tags:
+- ios
+
 ---
+ <p>Over the past week, I’ve been working on a small to-do list app that categorizes your personal tasks based on type and category. One of the bigger challenges I had while building my to-do list app was moving tasks around across different sections. And while Apple has its own proprietary method for managing and reordering its cells via an optional button, I wanted my cells to move based on button presses instead, specifically with the popular <a class="markup--anchor markup--p-anchor" href="https://github.com/CEWendel/SWTableViewCell">SWTableViewCell </a>cocoapod.</p>
 <p id="9caf" class="graf--p">It’s amazing how much is available through cocoaPods and open source code in general. No need to re-invent the wheel or spend hours trying to create this functionality 4 weeks into my education here at the Flatiron. All I had to do was install the “pod”, import the files into my program and call the methods provided for me.</p>
 <figure id="ef52" class="graf--figure graf--layoutInsetLeft">
 <div class="aspectRatioPlaceholder is-locked">
@@ -34,7 +22,8 @@ excerpt: <p>Over the past week, I’ve been working on a small to-do list app th
 </figure>
 <p class="graf--p">A couple days ago, I showed one of our instructors Tom my working (sort of) version of my to-do list, and he suggested that since my tasks are sectioned off by their type or priority, it would be pretty neat to integrate up and down buttons in my left swipe utility buttons, which allows my tasks to re-categorize — or in this instance: re-prioritize.</p>
 <p class="graf--p">For example, if I added a task to the <strong class="markup--strong markup--p-strong">start </strong>section such as… “<em class="markup--em markup--p-em">brainstorming killer app ideas with Team iOS 0615”</em>, perhaps I’d like it so serve as a future reminder even after starting the said task. A handy feature would be to move the specific task object in my “starting tasks” list and move it over to the “continue tasks” list. Initially it seemed easy, but as I started working on the method responsible for button presses with the left swipe… my app kept crashing on button press.</p>
-<hr />
+<!--more-->
+<hr/>
 <blockquote>
 <p class="graf--p">Eventually, I realized I was spending all my efforts moving a cell around from section to section without ever updating my data model of arrays holding each and every specific type of task.</p>
 </blockquote>
