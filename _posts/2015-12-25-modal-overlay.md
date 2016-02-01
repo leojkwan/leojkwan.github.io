@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Presenting a simple walkthrough screen in your iPhone app.'
+title: 'Present an iOS modal view programmatically in objective-c.'
 date: 2015-12-24 16:01:41.000000000 -04:00
 type: post
 published: true
