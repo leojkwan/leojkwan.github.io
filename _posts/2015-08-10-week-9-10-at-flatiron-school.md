@@ -5,7 +5,7 @@ date: 2015-08-10 13:13:00.000000000 -04:00
 type: post
 status: publish
 tags:
-- flatiron
+- flatiron school
 ---
 
 ## Week 9

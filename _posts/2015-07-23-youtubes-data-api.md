@@ -5,9 +5,8 @@ date: 2015-07-23 14:21:52.000000000 -04:00
 type: post
 published: true
 status: publish
-categories:
-- Code
-tags: []
+tags:
+- ios
 
 ---
 
@@ -34,7 +33,7 @@ With just the free quota, you get 50 million units/day and 3000 requests/second/
 ##### Pod Install the <a href="https://github.com/AFNetworking/AFNetworking">AFNetworking</a> CocoaPod.
 
 ![](https://s3-us-west-2.amazonaws.com/leojkwan/images/afnetworkingScreenshot.png)
-{: style="max-width:200px;" }
+{: style="max-width:200px;"}
 
 I used AFNetworking to perform my HTTP requests for youtube’s JSON responses. Just about every app you see in the App store that connects to the internet utilizes this powerful cocoa pod that allow you to make HTTP requests in Objective C. It’s a great alternative to using NSURL Session, which is a slightly more tedious method to speak with the internet.<br />
 

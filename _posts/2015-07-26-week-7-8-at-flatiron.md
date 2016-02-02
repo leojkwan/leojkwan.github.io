@@ -5,12 +5,15 @@ date: 2015-07-26 22:04:48.000000000 -04:00
 type: post
 published: true
 status: publish
-tags: [flatiron]
-excerpt: <h2 style="text-align:center;"><span style="text-decoration:underline;">Week 7</span></h2><p class="intro" style="text-align:center;">Presenting Muse at Flatiron Presents</p><p>Finally finished my part in Flatiron Presents. Every Tuesday here at Flatiron School, 3-4 pairs (2 web, 2 mobile) of students present an app/ feature that they have collaborated on. My partner unfortunately dropped from the program around Week 4, but I tried making the most out of the last 2 weeks and made a working app that I feel proud about.</p>
+tags:
+- flatiron school
 ---
+
+<h2 style="text-align:center;"><span style="text-decoration:underline;">Week 7</span></h2><p class="intro" style="text-align:center;">Presenting Muse at Flatiron Presents</p><p>Finally finished my part in Flatiron Presents. Every Tuesday here at Flatiron School, 3-4 pairs (2 web, 2 mobile) of students present an app/ feature that they have collaborated on. My partner unfortunately dropped from the program around Week 4, but I tried making the most out of the last 2 weeks and made a working app that I feel proud about.</p>
+<!--more-->
 <p>I made a journaling app that allows users to fully capture a moment by pinning their currently playing song to a journal entry for future playback. The frameworks I used to make this app work include MPMediaQuery, MPMusicPlayerController, and Parse as a backend solution for saving entries and music playlists.<br /></p>
 
-<!--more-->
+
 
 I attached below the keynote and demo video that I used for '<a href="http://www.meetup.com/Flatiron-School-Presents/">Flatiron Presents</a>'. Check it out!
 
