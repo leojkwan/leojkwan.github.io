@@ -9,19 +9,18 @@ categories:
 - Code
 tags:
 - flatiron school
-meta:
-  _rest_api_published: '1'
-  _rest_api_client_id: "-1"
-  _publicize_job_id: '12759645427'
-  _thumbnail_id: '301'
-author:
-  login: leojkwan
-  email: leokwanbt14@gmail.com
-  display_name: Leo Kwan
-  first_name: ''
-  last_name: ''
-excerpt: <h2 style="text-align:center;"><span style="text-decoration:underline;">Week 3</span></h2><p class="intro" style="text-align:center;">Table Views and Datastores.</p><hr/><span style="text-decoration:underline;"><strong>Day 12</strong></span><p><br/>Before the day ended yesterday, Tim introduced us to table view controllers, the visual interface that powers a majority of the apps we play with. Just think about any app that scrolls through endless rows. By the time lecture wrapped up, my brain was already heading into power-save mode after spending most of the afternoon tackling navigation controllers, which allow subsequent windows to appear after a button press to more detailed information.<br/></p>
 ---
+Week 3
+{: class="title-text" }
+
+Table Views and Datastores.
+{: class="subtitle-text" }
+
+#### Day 12
+
+Before the day ended yesterday, Tim introduced us to table view controllers, the visual interface that powers a majority of the apps we play with. Just think about any app that scrolls through endless rows. By the time lecture wrapped up, my brain was already heading into power-save mode after spending most of the afternoon tackling navigation controllers, which allow subsequent windows to appear after a button press to more detailed information.
+
+ <!--more-->
 <p>I don’t feel very comfortable with the material, and I’ll probably have to re-watch some of the lectures. Oh yeah— all our lectures and code samples are recorded and posted on GitHub so that we don’t have to stress with getting all the notes and code lab walkthroughs at that very instance. +1 for Flatiron Team.</p>
 <p>I usually get to the school half an hour before class begins to get a head start on the day— checking emails, finishing remaining labs, rereading lecture notes, etc . That’s also another nice perk of Flatiron— it’s open 24/7, so you can arrive as early and leave as late as you need to work on remaining assignments and projects. Granted, the instructors are probably not there beyond 7pm, but the entire makes a good effort to be available an hour before class every morning.</p>
 <p>Overall, this week was positive and I felt that I was hitting my stride with table views and segues, which is what allow you to go from one screen to the next. Part of the reason why I really understood table views was because I spent the coming weekend tinkering with a small personal project I’ve always wanted to accomplish. It incorporated just about everything we’ve learned to this point so it felt like good timing too; I worked on making my own version of the simple, but ubiquitous <a href="http://leojkwan.com/2015/06/24/123/">to-do list app</a>.</p>

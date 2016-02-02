@@ -16,7 +16,7 @@ title: Home
     <!-- DATE STAMP -->
     <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date_to_string }}</time>
     <!-- EXCERPT -->
-    {{ post.content | split:'<!--more-->' | first }}
+    {{ post.content | split:'<!--more-->' | first }} <a href={{post.url}}>Read more...</a>
     <hr/>
   </article>
   {% endfor %}

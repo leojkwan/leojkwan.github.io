@@ -6,8 +6,16 @@ type: post
 published: true
 tags:
 - flatiron school
-excerpt: <h2 style="text-align:center;"><span style="text-decoration:underline;">Week 5</span></h2><p class="intro" style="text-align:center;">Auto Layout</p><h5><span style="text-decoration:underline;">Wrapping Up Core Data</span></h5><p>We wrapped up our last lecture on core data this morning, and even though the everything dealing with core data seemed convoluted, it eventually became pretty straightforward. According to our main instructor Tim, we primarily use APIs and cloud services to manage our services. There is also <a href="http://www.parse.com">Parse</a>, a backend database solution for mobile app developers who don’t can’t/don’t want to deal with the backend side of things. On top of that, they recently came out with a new local database feature for iOS, meaning you can save data locally until you have a network connection, which then syncs your files with Parse’s server. Makes you think when we’d ever have the need for Core Data.</p>
 ---
+Week 5
+{: class="title-text"}
+Finishing Core Data & Auto Layout
+{: class="subtitle-text"}
+
+We wrapped up our last lecture on core data this morning, and even though the everything dealing with core data seemed convoluted, it eventually became pretty straightforward. According to our main instructor Tim, we primarily use APIs and cloud services to manage our services. There is also <a href="http://www.parse.com">Parse</a>, a backend database solution for mobile app developers who don’t can’t/don’t want to deal with the backend side of things. On top of that, they recently came out with a new local database feature for iOS, meaning you can save data locally until you have a network connection, which then syncs your files with Parse’s server. Makes you think when we’d ever have the need for Core Data.
+
+
+<!--more-->
 <h5><span style="text-decoration:underline;">Auto Layout</span></h5>
 <p>We are learning how to apply rules and constraints in our frames the hard way first. Finished a lab that incorporated this mundane way of adding constraints. You had to add constraints to each side an object in relation to the said object’s nearest border. It was tough but no complaints. We need to understand the tried and past methods to appreciate what we often take for granted now.</p>
 <h5><span style="text-decoration:underline;">Moronic Mondays</span></h5>
