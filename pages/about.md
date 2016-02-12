@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About
+weight: 3 
 ---
 
 ### Hi, I’m Leo and I’m a software developer writing about stuff I learn along the way.

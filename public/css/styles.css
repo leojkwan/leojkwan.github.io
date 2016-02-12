@@ -827,12 +827,12 @@ a.sidebar-nav-item:focus {
 .page-title,
 .post-title,
 .post-title a {
-  color: #ac4142;
+  color: inherit;
 }
 
 .page-title,
 .post-title {
-  margin-top: 0;
+  margin: 0px 0px 50px;
 }
 
 /* Meta data line below post title */
@@ -955,6 +955,20 @@ a.pagination-item:hover {
  * Apply custom color schemes by adding the appropriate class to the `body`.
  * Based on colors from Base16: http://chriskempson.github.io/base16/#default.
  */
+/* Leo Custom colors */
+/* Arsenic */
+.theme-base-01 .sidebar,
+.theme-base-01 .sidebar-toggle:active,
+.theme-base-01 #sidebar-checkbox:checked ~ .sidebar-toggle {
+  background-color: #424242;
+}
+
+.theme-base-01 .container a,
+.theme-base-01 .sidebar-toggle,
+.theme-base-01 .related-posts li a:hover {
+  color: #4E4748;
+}
+
 /* Red */
 .theme-base-08 .sidebar,
 .theme-base-08 .sidebar-toggle:active,

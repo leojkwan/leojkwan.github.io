@@ -8,7 +8,7 @@ permalink:           /:title
 
 # Setup
 title:               Leo Kwan
-tagline:             Blog
+tagline:             Code | Sports Performance
 url:                 http://leojkwan.github.io
 paginate:            5
 paginate_path:       "page:num"

@@ -2,6 +2,7 @@
 layout: page
 title: Tags
 permalink: /tags/
+weight: 2
 ---
 
 <ul class="tag-cloud">

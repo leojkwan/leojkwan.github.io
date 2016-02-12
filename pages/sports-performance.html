@@ -1,12 +1,11 @@
 ---
-layout: default
-title: Home
+layout: page
+title: Sports Performance
+permalink: /sports-performance/
+weight: 1
 ---
-
-<div class="posts">
-
-  {% for post in paginator.posts %}
-    {% if post.tags contains 'flatiron school' or 'ios' %}
+{% if post.tags contains 'sports performance' %}
+  {% for post in site.posts %}
     <article class="post">
       <!-- TITLE -->
       <h1 class="post-title">
@@ -20,10 +19,10 @@ title: Home
       {{ post.content | split:'<!--more-->' | first }} <a href={{post.url}}>Read more...</a>
       <hr/>
     </article>
-    {% endif %}
   {% endfor %}
-</div>
-
+{% else %}
+  <h3>Nothing here... yet! </h3>
+{% endif %}
 
 <!-- Footer -->
 <div class="pagination">
