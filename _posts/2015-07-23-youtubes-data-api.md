@@ -211,22 +211,19 @@ return video;
 
 
 Because they are in an array, we can loop through them and pick out what we need to create a youtube video object. Lets make an NSMutableArray outside our method call. Afterwards, call your YoutubeAPIClient class method and plug the response values into a video instance within a for loop.
+<!--`*-->
 
-{% highlight objc %}
-
+```objc
 [YouTubeAPIClient getVideosWithQuery:@"Flatiron School"
 
 completionBlock:^(NSDictionary *response) { 
-
 for (NSDictionary *video in response[@"items"]) {
-
  NSLog(@"%@",response);
-
  YoutubeVideo *videoAtThisIndex = [YoutubeVideo videoFromDictionary:video]; 
 
 [self.FISVideoResultsArray addObject:videoAtThisIndex];}
-{% endhighlight %}
-
+```
+<!--`*-->
 
 ---
 
