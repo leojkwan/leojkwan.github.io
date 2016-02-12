@@ -46,14 +46,15 @@ This client class will have two class methods, one for performing a youtube sear
 {: class="subtitle-text"}
 
 In our first GET request, all we want to do is get back the results in a video search query. The base URL for this standard call is:
-#####https://www.googleapis.com/youtube/v3/search
+https://www.googleapis.com/youtube/v3/search
 
 All of the logic will take place in a GET request method. You will need to pass in the query for what you want to search, as will as a completion block that will accept what you get back from Youtube.
 This is an example class method I used for the GET Request:
 
-{% highlight objc %}
+```objective-c
 +(void) getVideosWithQuery:(NSString *)query completionBlock:(void (^) (NSDictionary *)) completionBlock;
-{% endhighlight %}
+```
+<!--`*-->
 
 #### To search Youtube with a specific query, you need several params:
 1. part: snippet
@@ -66,32 +67,7 @@ The “part” key is technically the only required param for making an API call
 
 Here is the method call in full:
 
-{% highlight objc %}
-
-+(void) getVideosWithQuery:(NSString *)query completionBlock:(void (^) (NSDictionary *)) completionBlock {
- NSString *YOUTUBE_SEARCH_URL = @"https://www.googleapis.com/youtube/v3/search";
-
-
-NSDictionary *params = @{
-
- @"part" : @"snippet",
- @"q": query,
- @"order": @"viewCount",
- @"key" : YOUTUBE_API_KEY};
-
- AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-
- [manager GET:YOUTUBE_SEARCH_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
- NSLog(@"%@", responseObject);
-completionBlock(responseObject);
- } failure:^(NSURLSessionDataTask *task, NSError *error) {
- NSLog(@"%@", error);
- }];
-
- }
-
-{% endhighlight %}
-
+{% gist leojkwan/9615ed1cb2746f35245b %}
 
 ---
 
