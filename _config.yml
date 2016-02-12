@@ -33,11 +33,12 @@ github:
 
 exclude: ['node_modules', 'Gruntfile.js','package.json',‘css’, ‘_scss’]
 
-# Do not erase the css directory in the _site Output
-# folder each time it rebuilds.
+# Do not erase the css directory in the _site output
+# It rebuilds every build.
 keep_files: ['_site/css']
 
 markdown: kramdown
+highligher: rouge
 
 #########################
 # Plugin: jekyll-assets #
