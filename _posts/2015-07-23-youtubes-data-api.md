@@ -187,10 +187,9 @@ It should look something like this in your header file:
 
 We will also need a class method that instantiates a Youtube Video object with the values we get back from youtube plugged into the object’s properties. That would look something like this in the implementation file:
 
-{% highlight objc %}
+```objective-c
 
 +(YoutubeVideo *) videoFromDictionary:(NSDictionary *) videoDictionary {
-
 
 YoutubeVideo *video = [[YoutubeVideo alloc] init];
 
@@ -202,7 +201,7 @@ video.thumbnailURL = videoDictionary[@"snippet"][@"thumbnails"][@"high"][@"url"]
 
 return video;
 }
-{% endhighlight %}
+```
 
 
 <h5><strong>Make an NSMutable Array in your table view controller to capture our video results.</strong></h5>
@@ -213,14 +212,12 @@ return video;
 Because they are in an array, we can loop through them and pick out what we need to create a youtube video object. Lets make an NSMutableArray outside our method call. Afterwards, call your YoutubeAPIClient class method and plug the response values into a video instance within a for loop.
 <!--`*-->
 
-```objc
+```objective-c
 [YouTubeAPIClient getVideosWithQuery:@"Flatiron School"
  completionBlock:^(NSDictionary *response) {
 for (NSDictionary *video in response[@"items"]) {
-
  YoutubeVideo *videoAtThisIndex = [YoutubeVideo videoFromDictionary:video]; 
 [self.FISVideoResultsArray addObject:videoAtThisIndex];
-
 }
 ```
 
