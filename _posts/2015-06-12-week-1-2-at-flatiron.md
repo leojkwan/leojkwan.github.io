@@ -9,6 +9,7 @@ tags:
 - flatiron school
 
 ---
+
 Week 1
 {: class="title-text"}
 Deploy on Day 1.
