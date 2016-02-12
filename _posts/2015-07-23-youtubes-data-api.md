@@ -231,9 +231,8 @@ for (NSDictionary *video in response[@"items"]) {
 2. Make instances of your youtube video object and set the videos to the items in your mutable array at their indexPath.row count.
 3. Set the UILabels of your custom class to the properties you created for your Youtube object
 
-{% highlight objc %}
+```objective-c
 YoutubeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"youtubeReuseCell" forIndexPath:indexPath];
-
 
 //ensures each cell in your table view corresponds to the exact
 // order that mutable array model displays.
@@ -242,15 +241,14 @@ YoutubeVideo *videoAtThisRow = self.FISVideoResultsArray[indexPath.row];
 
 cell.videoTitleLabel.text = videoAtThisRow.titleOfVideo;
 cell.channelNameLabel.text = videoAtThisRow.titleOfChannel;
-{% endhighlight %}
+```
 
 ![](https://s3-us-west-2.amazonaws.com/leojkwan/images/youtube-screenshot5.png)
 {: class="subtitle-text" }
 
 <p>It’s a bit tricky with the thumbnail URL property because assuming you set a UIImageView in your custom table view cell, you will need to create a NSData instance with the imageURL, and then you’ll have to create a UIImage with that NSData. With the UIImage, now you can set the image to the cell property.</p>
 
-{% highlight objc %}
-
+```objective-c
 for(ATRYoutubeVideo *videoAtThisIndex in self.videoResultsWithQuery) {
 
 [ATRYouTubeAPIClient getVideosStatsWithVideoID:videoAtThisIndex.videoID completionBlock:^(NSDictionary *response) {
@@ -259,19 +257,19 @@ NSLog(@"%@", response);
 NSString *viewCountForThisVideo = response[@"items"][0][@"statistics"][@"viewCount"]; // The array we want will always be 0 because the completion block will always return just one
 
 videoAtThisIndex.totalViews = viewCountForThisVideo;
-{% endhighlight %}
+```
 
 
 Before we end leave this second completion block (which is in our first class method’s completion block), we need to reload our table view data on the main thread, ensuring that the table view will reload once the API response is finished. Otherwise, our table view will load in the storyboard before our API GET request is finished.
 
 <h5>Add this into the end of your second class method’s completion block:</h5>
 
-{% highlight objc %}
+```objective-c
 [[NSOperationQueue mainQueue] addOperationWithBlock:^{</pre>
 
 [self.youtubeResultsTableView reloadData];
 }];
-{% endhighlight %}
+```
 
 #### Assuming you passed in the Flatiron School like I did into your search query, you should get back something like this in your tableview controller.
 <br>
