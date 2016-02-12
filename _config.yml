@@ -37,7 +37,7 @@ exclude: ['node_modules', 'Gruntfile.js','package.json',‘css’, ‘_scss’]
 # It rebuilds every build.
 keep_files: ['_site/css']
 
-markdown: kramdown:
+kramdown:
   input: GFM
   syntax_highlighter: rouge
 highligher: rouge
