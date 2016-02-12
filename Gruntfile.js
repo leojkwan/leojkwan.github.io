@@ -64,9 +64,10 @@ module.exports = function (grunt) {
            'src/scss/*.scss',
            '_config.yml',
            'pages/**',
-             'index.html',
-             '_layouts/**',
-             '_posts/**'
+           '_includes/**',
+           'index.html',
+           '_layouts/**',
+           '_posts/**'
          ],
          tasks: ['uglify:dev', 'concat', 'sass:dev', 'shell:jekyllBuild'],
          options: {

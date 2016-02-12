@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
+<style>
+  .home {
+    text-decoration: none !important;
+    color: #FF4A0A !important;
+    text-align: right;
+  }
+</style>
   {% include head.html %}
 
-  <body class="theme-base-08 layout-reverse">
+  <body class="theme-base-01 layout-reverse">
 
     {% include sidebar.html %}
 
@@ -13,12 +19,11 @@
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
-            <small>{{ site.tagline }}</small>
+            <a href="{{ site.baseurl }}/" title="Home">Home</a>
+              <small> a blog about learning code and training in sports.</small>
           </h3>
         </div>
       </div>
-
       <div class="container content">
         {{ content }}
       </div>
@@ -28,6 +33,7 @@
 
     {% include analytics.html %}
     <script>
+      console.log("Current page route: {{ page.url }}");
       (function(document) {
         var toggle = document.querySelector('.sidebar-toggle');
         var sidebar = document.querySelector('#sidebar');
