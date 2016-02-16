@@ -7,25 +7,6 @@ published: true
 status: publish
 tags:
 - flatiron school
-meta:
-  _edit_last: '81371866'
-  _publicize_job_id: '11434256592'
-  geo_public: '0'
-  switch_like_status: '1'
-  _thumbnail_id: '242'
-author:
-  login: leojkwan
-  email: leokwanbt14@gmail.com
-  display_name: Leo Kwan
-  first_name: ''
-  last_name: ''
-excerpt: It’s official- I got accepted into The Flatiron School for iOS Development
-  this Summer. The Flatiron School is a 12 week immersive coding camp that provides
-  admitted students with the practical skills necessary to work as professional web
-  and mobile app developers. I just finished my second year as a strength coach for
-  New York University, so the transition from sports performance to computer programming
-  cannot be any faster. Nevertheless, I am extremely excited to get going with the
-  program come June.
 ---
 <p>It’s official- I got accepted into The Flatiron School for iOS Development this Summer. The Flatiron School is a 12 week immersive coding camp that provides admitted students with the practical skills necessary to work as professional web and mobile app developers. I just finished my second year as a strength coach for New York University, so the transition from sports performance to computer programming cannot be any faster. Nevertheless, I am extremely excited to get going with the program come June.</p>
 <p><!--more--></p>

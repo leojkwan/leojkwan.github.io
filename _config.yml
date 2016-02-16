@@ -8,12 +8,12 @@ permalink:           /:title
 
 # Setup
 title:               Leo Kwan
-tagline:             Blog
+tagline:             Code | Sports Performance
 url:                 http://leojkwan.github.io
 paginate:            5
 paginate_path:       "page:num"
 baseurl:             ""
-gems: [jekyll-paginate, jekyll-watch, jekyll-assets]
+gems: [jekyll-paginate, jekyll-watch, jekyll-assets, jekyll-gist]
 
 # We specify the directory for Jekyll so we can use @imports.
 sass:
@@ -33,11 +33,14 @@ github:
 
 exclude: ['node_modules', 'Gruntfile.js','package.json',‘css’, ‘_scss’]
 
-# Do not erase the css directory in the _site Output
-# folder each time it rebuilds.
+# Do not erase the css directory in the _site output
+# It rebuilds every build.
 keep_files: ['_site/css']
 
-markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+highligher: rouge
 
 #########################
 # Plugin: jekyll-assets #

@@ -46,14 +46,15 @@ This client class will have two class methods, one for performing a youtube sear
 {: class="subtitle-text"}
 
 In our first GET request, all we want to do is get back the results in a video search query. The base URL for this standard call is:
-#####https://www.googleapis.com/youtube/v3/search
+https://www.googleapis.com/youtube/v3/search
 
 All of the logic will take place in a GET request method. You will need to pass in the query for what you want to search, as will as a completion block that will accept what you get back from Youtube.
 This is an example class method I used for the GET Request:
 
-{% highlight objc %}
+```objective-c
 +(void) getVideosWithQuery:(NSString *)query completionBlock:(void (^) (NSDictionary *)) completionBlock;
-{% endhighlight %}
+```
+<!--`*-->
 
 #### To search Youtube with a specific query, you need several params:
 1. part: snippet
@@ -66,32 +67,7 @@ The “part” key is technically the only required param for making an API call
 
 Here is the method call in full:
 
-{% highlight objc %}
-
-+(void) getVideosWithQuery:(NSString *)query completionBlock:(void (^) (NSDictionary *)) completionBlock {
- NSString *YOUTUBE_SEARCH_URL = @"https://www.googleapis.com/youtube/v3/search";
-
-
-NSDictionary *params = @{
-
- @"part" : @"snippet",
- @"q": query,
- @"order": @"viewCount",
- @"key" : YOUTUBE_API_KEY};
-
- AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-
- [manager GET:YOUTUBE_SEARCH_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
- NSLog(@"%@", responseObject);
-completionBlock(responseObject);
- } failure:^(NSURLSessionDataTask *task, NSError *error) {
- NSLog(@"%@", error);
- }];
-
- }
-
-{% endhighlight %}
-
+{% gist leojkwan/9615ed1cb2746f35245b %}
 
 ---
 
@@ -187,10 +163,9 @@ It should look something like this in your header file:
 
 We will also need a class method that instantiates a Youtube Video object with the values we get back from youtube plugged into the object’s properties. That would look something like this in the implementation file:
 
-{% highlight objc %}
+```objective-c
 
 +(YoutubeVideo *) videoFromDictionary:(NSDictionary *) videoDictionary {
-
 
 YoutubeVideo *video = [[YoutubeVideo alloc] init];
 
@@ -202,7 +177,7 @@ video.thumbnailURL = videoDictionary[@"snippet"][@"thumbnails"][@"high"][@"url"]
 
 return video;
 }
-{% endhighlight %}
+```
 
 
 <h5><strong>Make an NSMutable Array in your table view controller to capture our video results.</strong></h5>
@@ -211,22 +186,18 @@ return video;
 
 
 Because they are in an array, we can loop through them and pick out what we need to create a youtube video object. Lets make an NSMutableArray outside our method call. Afterwards, call your YoutubeAPIClient class method and plug the response values into a video instance within a for loop.
+<!--`*-->
 
-{% highlight objc %}
-
+```objective-c
 [YouTubeAPIClient getVideosWithQuery:@"Flatiron School"
-
-completionBlock:^(NSDictionary *response) { 
-
+ completionBlock:^(NSDictionary *response) {
 for (NSDictionary *video in response[@"items"]) {
-
- NSLog(@"%@",response);
-
  YoutubeVideo *videoAtThisIndex = [YoutubeVideo videoFromDictionary:video]; 
+[self.FISVideoResultsArray addObject:videoAtThisIndex];
+}
+```
 
-[self.FISVideoResultsArray addObject:videoAtThisIndex];}
-{% endhighlight %}
-
+<!--`*-->
 
 ---
 
@@ -236,9 +207,8 @@ for (NSDictionary *video in response[@"items"]) {
 2. Make instances of your youtube video object and set the videos to the items in your mutable array at their indexPath.row count.
 3. Set the UILabels of your custom class to the properties you created for your Youtube object
 
-{% highlight objc %}
+```objective-c
 YoutubeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"youtubeReuseCell" forIndexPath:indexPath];
-
 
 //ensures each cell in your table view corresponds to the exact
 // order that mutable array model displays.
@@ -247,15 +217,14 @@ YoutubeVideo *videoAtThisRow = self.FISVideoResultsArray[indexPath.row];
 
 cell.videoTitleLabel.text = videoAtThisRow.titleOfVideo;
 cell.channelNameLabel.text = videoAtThisRow.titleOfChannel;
-{% endhighlight %}
+```
 
 ![](https://s3-us-west-2.amazonaws.com/leojkwan/images/youtube-screenshot5.png)
 {: class="subtitle-text" }
 
 <p>It’s a bit tricky with the thumbnail URL property because assuming you set a UIImageView in your custom table view cell, you will need to create a NSData instance with the imageURL, and then you’ll have to create a UIImage with that NSData. With the UIImage, now you can set the image to the cell property.</p>
 
-{% highlight objc %}
-
+```objective-c
 for(ATRYoutubeVideo *videoAtThisIndex in self.videoResultsWithQuery) {
 
 [ATRYouTubeAPIClient getVideosStatsWithVideoID:videoAtThisIndex.videoID completionBlock:^(NSDictionary *response) {
@@ -264,19 +233,19 @@ NSLog(@"%@", response);
 NSString *viewCountForThisVideo = response[@"items"][0][@"statistics"][@"viewCount"]; // The array we want will always be 0 because the completion block will always return just one
 
 videoAtThisIndex.totalViews = viewCountForThisVideo;
-{% endhighlight %}
+```
 
 
 Before we end leave this second completion block (which is in our first class method’s completion block), we need to reload our table view data on the main thread, ensuring that the table view will reload once the API response is finished. Otherwise, our table view will load in the storyboard before our API GET request is finished.
 
 <h5>Add this into the end of your second class method’s completion block:</h5>
 
-{% highlight objc %}
+```objective-c
 [[NSOperationQueue mainQueue] addOperationWithBlock:^{</pre>
 
 [self.youtubeResultsTableView reloadData];
 }];
-{% endhighlight %}
+```
 
 #### Assuming you passed in the Flatiron School like I did into your search query, you should get back something like this in your tableview controller.
 <br>
