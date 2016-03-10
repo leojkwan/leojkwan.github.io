@@ -42,26 +42,27 @@ body {
 }
 
 html {
-  font-family: "Joanna Nova Light", Georgia, "Times New Roman", serif;
-  line-height: 1.8;
-  text-align:justify;
+  font-family: "Joanna Sans Nova Light", Georgia, "Times New Roman", serif;
 }
 
-h1 {
-  font-family: "Semplicita Pro Medium", Helvetica, Arial, sans-serif;
+p {
+  text-align:justify;
+  line-height: 1.9;
+}
+
+h1,h2, h3 {
+  font-family: "Semplicita Pro Regular", Helvetica, Arial, sans-serif;
   text-align:left;
   font-weight: 400;
   color: #464F59;
   letter-spacing: -.050rem;
 }
 
-h2, h3, h4, h5, h6 {
-  font-family: "Semplicita Pro Regular", Helvetica, Arial, sans-serif;
+ h4, h5, h6 {
+  font-family: "Joanna Nova Light", Helvetica, Arial, sans-serif;
   text-align:left;
-  font-weight: 400;
   color: #464F59;
 }
-
 
 /*
  * Wrapper
@@ -75,7 +76,6 @@ h2, h3, h4, h5, h6 {
   position: relative;
   width: 100%;
 }
-
 
 /*
  * Container
