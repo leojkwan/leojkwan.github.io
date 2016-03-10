@@ -90,7 +90,7 @@ module.exports = function (grunt) {
       },
       dist: {
         src: [
-          'src/scss/style.scss',
+          'src/scss/styles.scss',
           'src/scss/poole.scss',
           'src/scss/lanyon.scss',
           'src/scss/syntax.scss',
