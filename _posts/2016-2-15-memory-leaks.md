@@ -9,14 +9,11 @@ tags:
 ---
 
 In many programming languages, memory management is handled with what's called a garbage collector. With iOS, the rules are a bit different. Apple implements a slightly different method for managing memory in its native app ecosystem called reference counting. Even Swift manages its memory with reference counting since Apple's libraries are written in Objective-C, forcing Swift to interface with the Objective-C language.
-
-The idea is pretty simple; every object in memory within your application has a count of how many references point to it. When there are no more references, you can effectively deallocate the object in memory since the program does not need it anymore.
-
-Sounds simple to manage, but here are three instances where circular referencing typically occur, and what Swift language offers to counter memory leaks
-
 <!--more-->
-<br>
 
+The idea is pretty simple; every object in memory within your application has a count of how many references point to it. When there are no more references, you can effectively deallocate the object in memory since the program does not need it anymore. Sounds simple to manage, but here are three instances where circular referencing typically occur, and what Swift language offers to counter memory leaks
+
+<br>
 
 ## 1. <u>Weak references</u>
 Say you have an a class named SportsTeam. In this team class, you have an array of type Player.
