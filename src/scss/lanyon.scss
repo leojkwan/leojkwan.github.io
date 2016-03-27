@@ -13,8 +13,8 @@ font-weight: normal;
 }
 
 @font-face {
-font-family: 'Semplicita Pro Light';
-src: url("/assets/fonts/Semplicita Pro Light.otf") format("opentype");
+font-family: 'Semplicita Pro Medium';
+src: url("/assets/fonts/Semplicita Pro Medium.otf") format("opentype");
 font-style: normal;
 font-weight: normal;
 }
@@ -36,12 +36,12 @@ font-weight: normal;
 .post-tags {
   display: block;
   text-align: right;
-  font-family: "Semplicita Pro Light";
+  font-family: "Semplicita Pro Regular";
   padding-bottom: 50px;
 }
 
 .title-text {
-  font-family: 'Semplicita Pro Light';
+  font-family: 'Semplicita Pro Regular';
   text-align:center;
   text-decoration:underline;
 }
@@ -133,7 +133,7 @@ p {
 }
 
 h1,h2, h3 {
-  font-family: "Semplicita Pro Regular", Helvetica, Arial, sans-serif;
+  font-family: "Semplicita Pro Medium", Helvetica, Arial, sans-serif;
   text-align:left;
   font-weight: 400;
   color: #464F59;
@@ -414,15 +414,15 @@ a.sidebar-nav-item:focus {
 }
 .page-title,
 .post-title {
-  margin: 0px 0px 50px;
+  margin: 0px 0px 20px;
 }
 
 /* Meta data line below post title */
 .post-date {
   display: block;
   margin-top: -.5rem;
-  margin-bottom: 1rem;
-  color: #9a9a9a;
+  margin-bottom: 30px;
+  color: #ED4933;
 }
 
 /* Related posts */
