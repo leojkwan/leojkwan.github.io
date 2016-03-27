@@ -115,11 +115,12 @@ print(leo.greeting())
 
 Take a look at the strange looking array bracket in the 'greeting' closure field— [unowned self].
 
-Because closures are objects, we would normally run into another circular reference issue because 'Player' references the 'greeting' closure while the closure references **self**. Like I mentioned earlier in the unowned section above, we need to make sure that a referenced object's lifetime (in this case— a closure's) is the same as that of Player? We need unowned self again!
-<br>
-This time, however, it will appear in the form of what's called a capture list. I don't fully understand capture lists to expound on them further, but basically, it's a bracket syntax you add before any parameter clauses in a closure to circumvent circular reference problems. For this example, capture lists allows us weakly reference self, the closure's creating object, which in turn makes the lifetime of both objects equivalent since the compiler will ignore the closure's unowned reference count.
-<hr>
+Because closures are objects, we would normally run into another circular reference issue because 'Player' references the 'greeting' closure while the closure references **self**. Like I mentioned earlier in the unowned section above, we need to make sure that a referenced object's lifetime (in this case— a closure's) is the same as that of Player? **We need unowned self again!**
 <br>
 
-# Conclusion
-Swift does not allow you to access an instance's reference count, because there may be things under the hood of the compiler that make additional calls to retain or release. But based on what I know, it's simply more important to recognize where strong reference cycles can exist and what we can do to avoid them.
+### This time, however,
+it will appear in the form of what's called a capture list. I don't fully understand capture lists to expound on them further, but basically, it's a bracket syntax you add before any parameter clauses in a closure to circumvent circular reference problems. For this example, capture lists allows us weakly reference self, the closure's creating object, which in turn makes the lifetime of both objects equivalent since the compiler will ignore the closure's unowned reference count.
+<br>
+
+### Conclusion
+So these are three common scenarios to keep in mind while avoiding memory leaks in Swift. I don't think Apple's compiler will allow you to access an instance's reference count. Even if you can, there's probably many things happening under the hood making additional calls to retain or release. But I suppose it's more important to recognize where strong reference cycles can exist and what we can do to avoid them!
