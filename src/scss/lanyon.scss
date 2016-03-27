@@ -1,3 +1,85 @@
+@font-face {
+font-family: 'Semplicita Pro Medium';
+src: url("/assets/fonts/Semplicita Pro Medium.otf") format("opentype");
+font-style: normal;
+font-weight: normal;
+}
+
+@font-face {
+font-family: 'Semplicita Pro Regular';
+src: url("/assets/fonts/Semplicita Pro Regular.otf") format("opentype");
+font-style: normal;
+font-weight: normal;
+}
+
+@font-face {
+font-family: 'Semplicita Pro Light';
+src: url("/assets/fonts/Semplicita Pro Light.otf") format("opentype");
+font-style: normal;
+font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Joanna Nova Light';
+  src: url("/assets/fonts/Joanna Nova Light.otf") format("opentype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Joanna Sans Nova Light';
+  src: url("/assets/fonts/Joanna Sans Nova Light.otf") format("opentype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+.post-tags {
+  display: block;
+  text-align: right;
+  font-family: "Semplicita Pro Light";
+  padding-bottom: 50px;
+}
+
+.title-text {
+  font-family: 'Semplicita Pro Light';
+  text-align:center;
+  text-decoration:underline;
+}
+
+.subtitle-text {
+  color: #464F59;
+  font-family: 'Semplicita Pro Regular';
+  text-align:center;
+  line-height:1.5;
+}
+
+.image-caption {
+  color:gray;
+  font-size: 12px;
+}
+
+.code-block {
+  margin: 30px 0;
+}
+
+/********************
+ * Default Poole Style Guide Below!
+ ********************
+
+ /
+/**
+ * CSS For Mobile.
+ */
+@media only screen and (max-width: 500px) {
+
+  .responsive-image {
+    display: block;
+    float:none !important;
+    width: 100% !important;
+    margin: 10% auto !important;
+    }
+}
+
 /*
  *  ___
  * /\_ \

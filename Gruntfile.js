@@ -90,7 +90,6 @@ module.exports = function (grunt) {
       },
       dist: {
         src: [
-          'src/scss/styles.scss',
           'src/scss/poole.scss',
           'src/scss/lanyon.scss',
           'src/scss/syntax.scss',
@@ -131,6 +130,6 @@ module.exports = function (grunt) {
   // During dev, the javascript will stay beautiful! 'grunt'
   grunt.registerTask('default', ['uglify:dev', 'concat', 'sass:dev', 'shell:jekyllBuild', 'connect', 'watch']);
 
-  // When deploying to real site.
-  grunt.registerTask('build', ['uglify:build', 'concat', 'sass:dev', 'sass:build']);
+  // assets UGLIFY. Deploying to production.
+  grunt.registerTask('build', ['uglify:build', 'concat', 'sass:build']);
 };
