@@ -11,7 +11,7 @@ Knowing what design pattern to implement in your code is one of the most importa
 <!--more-->
 
 <p> No, design patterns have nothing to do with user interface or visual design-who would ever think that? -scratch head- Rather, they are reusable solutions that solve common problems, particularly with communication between objects in code. </p>
-<p> There are many powerful design patterns found in iOS development. For this blog post, I wanted to expand on the <strong>delegate pattern</strong> in iOS.<!--more--></p>
+<p> There are many powerful design patterns found in iOS development. For this blog post, I wanted to expand on the <strong>delegate pattern</strong> in iOS.</p>
 <hr />
 
 ## What it delegation?
