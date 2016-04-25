@@ -3,6 +3,7 @@ layout: post
 title: 'Preventing memory leaks with unowned, weak and capture lists'
 type: post
 published: true
+categories:
 status: publish
 tags:
 - ios
