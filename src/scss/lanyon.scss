@@ -1,3 +1,7 @@
+/********************
+ * MY STYLE GUIDE
+ ********************/
+
 @font-face {
 font-family: 'Semplicita Pro Medium';
 src: url("/assets/fonts/Semplicita Pro Medium.otf") format("opentype");
@@ -61,6 +65,105 @@ font-weight: normal;
 .code-block {
   margin: 30px 0;
 }
+
+.profile-pic {
+  max-width:90px;
+  border:2px solid lightgrey;
+  margin-left:0px;
+  margin-right:40px;
+  float:left;
+  border-radius:50%;
+}
+
+@font-face {
+    font-family: 'si';
+    src: url('/assets/socicon.eot');
+    src: url('/assets/socicon.eot?#iefix') format('embedded-opentype'),
+         url('/assets/socicon.woff') format('woff'),
+         url('/assets/socicon.ttf') format('truetype'),
+         url('/assets/socicon.svg#icomoonregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family:si;
+        src: url(../assets/socicon.svg) format(svg);
+    }
+}
+
+.soc {
+    overflow:hidden;
+    margin:0; padding:0;
+    list-style:none;
+}
+
+.soc li {
+    display:inline-block;
+    *display:inline;
+    zoom:1;
+}
+
+.soc li a {
+    font-family:si!important;
+    font-style:normal;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    box-sizing:border-box;
+    overflow:hidden;
+    text-decoration:none;
+    text-align:center;
+    display:block;
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    margin-right: 13px;
+    color: #ffffff !important;
+    background-color: none;
+}
+
+.soc-icon-last{
+    margin:0 !important;
+}
+
+.soc-twitter {
+    background-color: #4da7de;
+}
+.soc-twitter:before {
+    content:'a';
+}
+.soc-facebook {
+    background-color: #3e5b98;
+}
+.soc-facebook:before {
+    content:'b';
+}
+.soc-google {
+    background-color: #d93e2d;
+}
+.soc-google:before {
+    content:'c';
+}
+.soc-linkedin {
+    background-color: #3371b7;
+}
+.soc-linkedin:before {
+    content:'j';
+}
+
 
 @media only screen and (max-width: 500px) {
 
@@ -195,13 +298,18 @@ h1,h2, h3 {
   padding-top:    1rem;
   padding-bottom: 1rem;
   margin-bottom: 3rem;
-  border-bottom: 1px solid #eee;
 }
+
 .masthead-title {
   margin-top: 0;
   margin-bottom: 0;
   color: #505050;
 }
+
+.masthead-title a {
+  text-decoration: none;
+}
+
 .masthead-title a {
   color: #505050;
 }
