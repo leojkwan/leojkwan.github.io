@@ -2,7 +2,7 @@
 #
 
 # Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           /:categories/:year/:title
+permalink:           /:categories/:year/:month/:title
 # permalink:           pretty
 # relative_permalinks: true
 

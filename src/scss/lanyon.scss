@@ -37,6 +37,14 @@ font-weight: normal;
   font-weight: normal;
 }
 
+@font-face {
+  font-family: 'Joanna Sans Nova Regular';
+  src: url("/assets/fonts/Joanna Sans Nova Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+
 .post-tags {
   display: block;
   text-align: right;
@@ -56,6 +64,12 @@ font-weight: normal;
   text-align:center;
   line-height:1.5;
 }
+
+.underlined {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 
 .image-caption {
   color:gray;
@@ -228,7 +242,7 @@ body {
 }
 
 html {
-  font-family: "Joanna Sans Nova Light", Georgia, "Times New Roman", serif;
+  font-family: "Joanna Sans Nova Regular", Arial, "Helvetica", sans-serif;
 }
 
 p {
@@ -538,7 +552,7 @@ a.sidebar-nav-item:focus {
   display: block;
   margin-top: -.5rem;
   margin-bottom: 30px;
-  color: #ED4933;
+  color: gray;
 }
 
 /* Related posts */
@@ -559,7 +573,7 @@ a.sidebar-nav-item:focus {
   color: #999;
 }
 .related-posts li a:hover {
-  color: #268bd2;
+  color: #ED4933;
   text-decoration: none;
 }
 .related-posts li a:hover small {
@@ -651,7 +665,7 @@ a.pagination-item:hover {
  * Based on colors from Base16: http://chriskempson.github.io/base16/#default.
  */
 
-/* Leo Custom colors */
+/* Leo custom colors */
 /* Arsenic */
 .theme-base-01 .sidebar,
 .theme-base-01 .sidebar-toggle:active,
@@ -661,7 +675,6 @@ a.pagination-item:hover {
 .theme-base-01 .container a,
 .theme-base-01 .sidebar-toggle,
 .theme-base-01 .related-posts li a:hover {
-  color: #4E4748;
 }
 
 /* Red */

@@ -54,7 +54,7 @@ html {
 }
 @media (min-width: 38em) {
   html {
-    font-size: 15px;
+    font-size: 17px;
     letter-spacing: .1px;
   }
 }
@@ -68,8 +68,8 @@ body {
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
-  color: #268bd2;
-  text-decoration: none;
+  color: #ED4933;;
+  text-decoration: underline;
 }
 a strong {
   color: inherit;
@@ -371,7 +371,7 @@ tbody tr:nth-child(odd) th {
   color: #999;
 }
 .related-posts li a:hover {
-  color: #268bd2;
+  color: #ED4933;
   text-decoration: none;
 }
 .related-posts li a:hover small {
