@@ -50,7 +50,7 @@ public protocol Hashable : Equatable {
 }
 ```
 
-##### This is the standard Hashable protocol in Swift.
+##### This is the standard Equatable protocol in Swift.
 
 ```swift
 public protocol Equatable {
