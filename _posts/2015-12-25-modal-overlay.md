@@ -57,7 +57,7 @@ I also created the UI walkthrough view
 {% endhighlight %}
 ---
 
-### The most important point here is the [delegate]({% post_url 2015-09-08-design-patterns-delegation-in-swift %}) declared in the header.
+
 {: style="text-align:center;"}
 <br>
 
