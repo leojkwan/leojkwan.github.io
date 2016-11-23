@@ -79,8 +79,6 @@ for (index, recipe) in recipes.enumerated() {
 
 A little different from the conventional cellForRowAtIndexPath jazz, but once you get head around that, you can enjoy your watch table view populated with our app’s snack list!
 
--show image of both simulators-
-
 #### Deleting snacks
 
 
