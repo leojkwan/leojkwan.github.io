@@ -1,11 +1,12 @@
 ---
 layout: post
-title: 'Learning in playgrounds with generics and hashable Part 2'
+title: Learning in playgrounds with generics and hashable Part 2
 type: post
 status: draft
-categories:
+categories: null
 tags:
-- ios
+  - ios
+published: true
 ---
 
 # Hashable
