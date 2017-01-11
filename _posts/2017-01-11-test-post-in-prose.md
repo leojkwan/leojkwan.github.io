@@ -1,5 +1,10 @@
 ---
 published: false
+layout: post
+type: post
+status: draft
+tags:
+  - test
 ---
 ## This is a post from prose.io!
 
