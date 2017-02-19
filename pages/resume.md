@@ -3,6 +3,7 @@ layout: page
 title: Resume
 permalink: /resume/
 weight: 4
+published: true
 ---
 
 
@@ -10,7 +11,6 @@ weight: 4
 
 ##### Contact
 - Email: leojkwan@gmail.com
-- Phone: (646) 267-6276
 
 <ul class="soc">
     <li><a class="soc-twitter" href="https://twitter.com/leojkwan"></a></li>
