@@ -2,7 +2,7 @@
 layout: post
 title: 'Easy Networking and Testing with Moya'
 type: post
-status: draft
+status: published
 categories:
 tags:
 - ios
@@ -178,20 +178,113 @@ I haven't used Moya in any Production application but here are a few reasons why
 
 3. #### It leverages XCode's compile time checking for any request you're intending to make.
 
-    Because your services are represented as enums, your url params can be represented in the shape of an Enum's associated values, making it 4.5 times (this may vary :O) harder to make screw up a network request.
+    Because your services are represented as enums, your url params can be represented in the shape of an Enum's associated values, making it 4.5 times (this may vary :O) harder to make screw up a network request. For example, when interacting with the example InstaFood service above, the 'createUser' POST endpoint required 'firstName' and 'lastName' in the post body. 
+
+    {% highlight swift %}
+
+        extension InstaFoodService: TargetType {
+        // ...
+
+        var parameters: [String: Any]? {
+            switch self {
+                case .createUser(let firstName, let lastName):
+                return ["first_name": firstName, "last_name": lastName]
+            }
+        }
+
+        // ...
+        }
+    {% endhighlight %}
+
+In the parameters field of my InstaFood service type, I can layout how the post body should look like by passing the associated values I receive from the '.createUser' case into a firstName, lastName dictionary. Power of enums!
+
+
+---
+
+### Making the request with MoyaProvider
+
+Remember the 'RequestManager' from above. **'MoyaProvider' is now your request manager.** It requires a <a href="http://leojkwan.com//2016/04/generics-hashable-1"> generic type</a> on creation, and that's right— you guessed it, the generic type must conform to the 'TargetType' protocol. How convenient! Our InstaFoodService enum fits right into that requirement, so when we do need to pull from the InstaFood API, it would look something like this.
+
+
+{% highlight swift %}
+
+struct User {
+    let firstName: String
+    let lastName: String
+}
+
+class ViewController: UIViewController {
+  
+  private let instaFoodService = MoyaProvider<InstaFoodService>()
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    let newUser = User(firstName: "Leo", lastName: "Kwan")    
     
+    instaFoodService.request(.createUser(
+        firstName: newUser.firstName,
+        lastName: newUser.lastName
+        )
+    ) { (result) in // Result<Moya.Response, MoyaError>
+      
+      switch result {
+        
+      case .success(let response):
 
+        // a 200 because requests are too easy now.
+        let statusCode = response.statusCode
 
+        // Do something after we create a new user
+
+      case .failure(let error): break
+        
+        // Could not make a network request
+        // Maybe we should try again when there is internet?
+        print(error)
+      }
+    }
+    
+  }
+}
+
+{% endhighlight %}
+
+What you're left with is a straightforward request with compile time checking. In this example, I get my associated type autocompletes ('(firstName: #String#, lastName: #String#)) when typing '.createUser...', so I know exactly what this path needs to make the right request. While that's a bonus win with Moya, the biggest win for me is, again, the one request interface in 'MoyaProvider'.
+
+It takes a generic TargetType, which means no more ad hoc api managers. If I want to make a facebook request, all I need to do is declare another 'TargetType' conforming enum.
+
+{% highlight swift %}
+
+    let facebookProvider = MoyaProvider<Facebook>()
+    
+    facebookProvider.request(
+        .fetchAllFriends(
+            facebookId: _String_,
+            token: _String_
+        )
+    ) { (response) in
+        // Similar code to handle data/error goes here
+        // It's that easy.
+    }
+
+{% endhighlight %}
+
+**...Or** Vimeo, or Github, or Stripe, or Mixpanel, or Strava, or really any REST interface with 'MoyaProvider'.
+
+---
+
+Granted, there's no rocket science going on over here. At the end of the day, Moya is just a great networking abstraction actively maintained by many contributers who Moya in production level applications. For those of you who feel that you've already solved your networking challenges and are rolling your own better + generic (in a good way) networking layer, kudos to you. 
+
+But for those of you like me who'd rather not take on the intellectual challenge to whip up an amazingly flexible and extensible(check the RxSwift Moya extensions) networking library leveraging AlamoFire, using a framework like Moya can greatly free up your mental overhead when programming for iOS because you know more definitively where your network logic lives for each one of your targets.
+
+---
 
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
+##### *Making request with Moya*
+{% gist leojkwan/ebd3f3e13ac5af456ee42ad817ab1820 %}
 
-
-
+##### *Making request with RequestManager wrapping URLSession.shared*
 {% gist leojkwan/bbdd49e51a8fb8bed6a9d4d927016826 %}
