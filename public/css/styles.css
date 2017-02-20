@@ -40,13 +40,13 @@ body {
 
 html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
 @media (min-width: 38em) {
   html {
-    font-size: 17px;
+    font-size: 15px;
     letter-spacing: .1px;
   }
 }
@@ -155,7 +155,7 @@ pre {
 
 code {
   padding: .25em .5em;
-  font-size: 85%;
+  font-size: 90%;
   color: #bf616a;
   background-color: #f9f9f9;
   border-radius: 3px;
@@ -170,20 +170,20 @@ pre {
   line-height: 1.4;
   white-space: pre;
   white-space: pre-wrap;
-  word-break: break-all;
   word-wrap: break-word;
   background-color: #f9f9f9;
 }
 
 pre code {
   padding: 0;
-  font-size: 100%;
+  font-size: 90%;
   color: inherit;
   background-color: transparent;
 }
 
 /* Pygments via Jekyll */
 .highlight {
+  margin: 0;
   margin-bottom: 1rem;
   border-radius: 4px;
 }
