@@ -79,9 +79,9 @@ This network client does one thing which is make a network request. The setup is
 
 As time goes on, I'll inevitably have to do more customized things with my request manager. For example, I may need to make a download task for larger sized files like images and video. Or, I may need to post a form and encode my post body with a form-encoded url. A ton of ifs and maybe's can happen, which is why libraries such as AlamoFire and AFNetworking are useful since just about any network request you'll have to make is wrapped in one place — not to mention it's powered by the culture of open-source, where tons of contributers maintain it, and even more companies/apps use it in production!
 
-But that's the networking layer. You still have to encapsulate your seperate service layers however you do it in your application. Maybe you've awesome and you build a generic request manager for your twitter, github, facebook RESTful interfaces... or maybe you're like me and decide to look past the duplication and make a small, teensy manager just for mailchimp. Just a small class that does one thing. I mean, it could just live on it's own right? It's just a teensy small class that makes one request. All I need to do it fetch my email list campaigns... that's it. 
-
-No. You're going to look back at your code months from now with 4-5 different "little" network layers and wonder, "where is that code that makes the request to fetch my email lists again?" 
+But that's the networking layer. You still have to encapsulate your seperate service layers however you do it in your application. Maybe you've awesome and you build a generic request manager for your twitter, github, facebook RESTful interfaces... or maybe you're like me and decide to look past the duplication and make a small, teensy manager just for mailchimp. Just a small class that does one thing. I mean, it could just live on it's own right?
+#### No.
+You're going to look back at your code months from now with 4-5 different "little" network layers and wonder, "where is that code that makes the request to fetch my email lists again?" 
 
 ---
 
