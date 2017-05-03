@@ -181,7 +181,6 @@ pre code {
 
 /* Pygments via Jekyll */
 .highlight {
-  margin: 0;
   margin-bottom: 1rem;
   border-radius: 4px;
 }
@@ -690,7 +689,7 @@ h1,h2, h3 {
   font-size: 1.5em;
   line-height: 1.3;
   color: #464F59;
-  letter-spacing: -.050rem;
+  letter-spacing: 1.2px;
 }
 
  h4, h5, h6 {
