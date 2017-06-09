@@ -89,4 +89,4 @@ In the next blog post, I'll explore how to delete rows from both the iOS app and
 
 In the next post, I’d like to be able to update my managed objects not just from the app, but from the watch kit extension too. To be clear, I am not attempting to synchronize two data models living in both the app and watch. I am simply passing fetched objects from the app to the watch, and making requests to read, update and delete managed objects from the watch to the app.
 
-**I know you can have a data model in the watchOS, but I feel weird about that. In the future, I would like do some research into the implications and performance marks of exercises and Core Data models straight from the watch.**
+**I know you can have a data model in the watchOS, but I feel weird about that. In the future, I'm going to test how well persisted managed objects fare in a standalone content on the watch.!**
