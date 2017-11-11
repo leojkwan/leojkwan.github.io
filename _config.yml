@@ -42,6 +42,9 @@ kramdown:
   syntax_highlighter: rouge
 highligher: rouge
 
+livereload: true
+reload_port: 4000
+
 #########################
 # Plugin: jekyll-assets #
 #########################

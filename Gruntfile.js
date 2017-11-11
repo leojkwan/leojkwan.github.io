@@ -23,11 +23,12 @@ module.exports = function (grunt) {
         command: 'jekyll serve'
       }
     },
-
     connect: {
       server: {
         options: {
-          port: 4000,
+          port: 4100,
+          livereload: 35729,
+          hostname: 'localhost',
           base: '_site'
         }
       }
@@ -37,16 +38,16 @@ module.exports = function (grunt) {
      * Uglifies shrinks my js.
      */
 
-    uglify : {
+    uglify: {
       build: {
         src: 'src/js/*.js',
         dest: 'js/script.min.js'
       },
       dev: {
         options: {
-          beautify:true,
+          beautify: true,
           mangle: false,
-          compress:false,
+          compress: false,
           preserveComments: 'all'
         },
         src: 'src/js/*.js',
@@ -57,32 +58,30 @@ module.exports = function (grunt) {
      * Live reload.
      */
 
-     watch: {
-       livereload: {
-         files: [
-           'src/js/*.js',
-           'src/scss/*.scss',
-           '_config.yml',
-           'pages/**',
-           '_includes/**',
-           'index.html',
-           '_layouts/**',
-           '_posts/**'
-         ],
-         tasks: ['uglify:dev', 'concat', 'sass:dev', 'shell:jekyllBuild'],
-         options: {
-           livereload: true
-         }
-       },
-       js: {
-         files: ['src/js/*.js'],
-         tasks: ['uglify:dev']
-       },
-       css: {
-         files: ['src/scss/*.scss'],
-         tasks: ['sass:dev']
-       }
-     },
+    watch: {
+      livereload: {
+        files: [
+          '_config.yml',
+          'pages/**',
+          '_includes/**',
+          'index.html',
+          '_layouts/**',
+          '_posts/**'
+        ],
+        tasks: ['shell:jekyllBuild'],
+        options: {
+          livereload: true
+        }
+      },
+      js: {
+        files: ['src/js/*.js'],
+        tasks: ['uglify:dev', 'concat',]
+      },
+      css: {
+        files: ['src/scss/*.scss'],
+        tasks: ['sass:dev']
+      }
+    },
 
     concat: {
       options: {
@@ -94,8 +93,8 @@ module.exports = function (grunt) {
           'src/scss/lanyon.scss',
           'src/scss/syntax.scss',
           'src/scss/tags.scss'
-       ],
-       dest: 'src/scss/styles.scss'
+        ],
+        dest: 'src/scss/styles.scss'
       }
     },
 
@@ -105,7 +104,7 @@ module.exports = function (grunt) {
           outputStyle: 'expanded'
         },
         files: {
-          'public/css/styles.css' : 'src/scss/styles.scss'
+          'public/css/styles.css': 'src/scss/styles.scss'
         }
       },
       build: {
@@ -113,7 +112,7 @@ module.exports = function (grunt) {
           outputStyle: 'compressed'
         },
         files: {
-          'public/css/styles.css' : 'src/scss/styles.scss'
+          'public/css/styles.css': 'src/scss/styles.scss'
         }
       }
     }
@@ -128,7 +127,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-sass');
 
   // During dev, the javascript will stay beautiful! 'grunt'
-  grunt.registerTask('default', ['uglify:dev', 'concat', 'sass:dev', 'shell:jekyllBuild', 'connect', 'watch']);
+  grunt.registerTask('default', ['uglify:dev', 'concat', 'sass:dev', 'shell:jekyllBuild', 'shell:jekyllServe']);
 
   // assets UGLIFY. Deploying to production.
   grunt.registerTask('build', ['uglify:build', 'concat', 'sass:build']);

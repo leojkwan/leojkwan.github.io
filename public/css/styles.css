@@ -150,12 +150,12 @@ abbr[title] {
 /* Code */
 code,
 pre {
-  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-family: "InputSans-Light", Menlo, "Courier New", monospace;
 }
 
 code {
   padding: .25em .5em;
-  font-size: 85%;
+  font-size: 100%;
   color: #bf616a;
   background-color: #f9f9f9;
   border-radius: 3px;
@@ -176,9 +176,11 @@ pre {
 
 pre code {
   padding: 0;
-  font-size: 100%;
   color: inherit;
   background-color: transparent;
+  font-size: 95%;
+  background-color: #f9f9f9;
+  border-radius: 3px;
 }
 
 /* Pygments via Jekyll */
@@ -193,7 +195,7 @@ pre code {
 
 /* Gist via GitHub Pages */
 .gist .gist-file {
-  font-family: Menlo, Monaco, "Courier New", monospace !important;
+  font-family: 'InputSans-Light', Monaco, "Courier New", monospace !important;
 }
 
 .gist .markdown-body {
@@ -239,7 +241,7 @@ blockquote p:last-child {
 img {
   display: block;
   max-width: 100%;
-  margin: 0 0 1rem;
+  margin: 0 auto 1rem;
   border-radius: 5px;
 }
 
@@ -443,6 +445,27 @@ a.pagination-item:hover {
  * MY STYLE GUIDE
  ********************/
 @font-face {
+  font-family: 'Gilroy-Bold';
+  src: url("/assets/fonts/Gilroy-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy-SemiBold';
+  src: url("/assets/fonts/Gilroy-SemiBold.otf") format("opentype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'InputSans-Light';
+  src: url("/assets/fonts/InputSans-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
   font-family: 'Semplicita Pro Medium';
   src: url("/assets/fonts/Semplicita Pro Medium.otf") format("opentype");
   font-style: normal;
@@ -452,13 +475,6 @@ a.pagination-item:hover {
 @font-face {
   font-family: 'Semplicita Pro Regular';
   src: url("/assets/fonts/Semplicita Pro Regular.otf") format("opentype");
-  font-style: normal;
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: 'Semplicita Pro Light';
-  src: url("/assets/fonts/Semplicita Pro Light.otf") format("opentype");
   font-style: normal;
   font-weight: normal;
 }
@@ -487,19 +503,16 @@ a.pagination-item:hover {
 .post-tags {
   display: block;
   text-align: right;
-  font-family: "Semplicita Pro Regular";
   padding-bottom: 50px;
 }
 
 .title-text {
-  font-family: 'Semplicita Pro Regular';
   text-align: center;
   text-decoration: underline;
 }
 
 .subtitle-text {
   color: #464F59;
-  font-family: 'Semplicita Pro Regular';
   text-align: center;
   line-height: 1.5;
 }
@@ -511,11 +524,9 @@ a.pagination-item:hover {
 
 .image-caption {
   color: gray;
-  font-size: 12px;
-}
-
-.code-block {
-  margin: 30px 0;
+  font-size: 14px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .profile-pic {
@@ -620,12 +631,16 @@ a.pagination-item:hover {
   content: 'j';
 }
 
+.responsive-image {
+  margin: 0 auto !important;
+}
+
 @media only screen and (max-width: 500px) {
   .responsive-image {
     display: block;
     float: none !important;
     width: 100% !important;
-    margin: 10% auto !important;
+    width: 75% !important;
   }
 }
 
@@ -671,7 +686,7 @@ body {
 }
 
 html {
-  font-family: "Joanna Sans Nova Regular", Arial, "Helvetica", sans-serif;
+  font-family: "Gilroy-Regular", Arial, "Helvetica", sans-serif;
 }
 
 p {
@@ -683,7 +698,7 @@ h1 {
 }
 
 h1, h2, h3 {
-  font-family: "Semplicita Pro Medium", Helvetica, Arial, sans-serif;
+  font-family: "Gilroy-Bold", Helvetica, Arial, sans-serif;
   text-align: left;
   font-size: 1.5em;
   line-height: 1.3;
@@ -692,7 +707,7 @@ h1, h2, h3 {
 }
 
 h4, h5, h6 {
-  font-family: "Semplicita Pro Light", Helvetica, Arial, sans-serif;
+  font-family: "Gilroy-SemiBold", Helvetica, Arial, sans-serif;
   font-size: 1.2em;
   line-height: 1.5;
   text-align: left;
@@ -796,9 +811,9 @@ h4, h5, h6 {
   width: 14rem;
   visibility: hidden;
   overflow-y: auto;
-  font-family: "Semplicita Pro Regular", Helvetica, Arial, sans-serif;
+  font-family: "Gilroy-SemiBold", Helvetica, Arial, sans-serif;
   font-size: .875rem;
-  /* 15px */
+  /* 17px */
   color: rgba(255, 255, 255, 0.6);
   background-color: #202020;
   -webkit-transition: all .3s ease-in-out;

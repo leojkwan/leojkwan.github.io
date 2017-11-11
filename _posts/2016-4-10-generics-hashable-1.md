@@ -107,7 +107,7 @@ findItemCountForArray(stringArray)    // ["game,": 1, "there": 1, "God,": 1, "ti
 
 The cool part of this function is the generic array parameter. When we called 'findItemCountForArray' and passed in the array of lyrics, our placeholder, <T>, became a string and was interpreted as a string all throughout the implementation. Specifically, <T> was used as the key for our dictionary of word counts! That's pretty cool, and you'll see that if you pass in an array of Ints like [1,4,5,2,6,6,6], we'll get back a dictionary in which each unique number in the array is a key.
 
-### The next post will be explain how to make structs and classes Hashable.
+###### The next post will be explain how to make structs and classes Hashable.
 
 <br/>
 
