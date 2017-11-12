@@ -3,6 +3,7 @@ layout: post
 title: 'Present an iOS modal view programmatically in objective-c.'
 date: 2015-12-24 16:01:41.000000000 -04:00
 type: post
+comments: true
 published: true
 status: publish
 tags:

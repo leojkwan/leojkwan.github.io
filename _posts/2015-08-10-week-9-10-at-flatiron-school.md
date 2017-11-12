@@ -4,6 +4,7 @@ title: 'Week 9 & 10 at Flatiron School.'
 date: 2015-08-10 13:13:00.000000000 -04:00
 type: post
 status: publish
+comments: true
 tags:
 - flatiron school
 ---

@@ -4,6 +4,7 @@ title: Accepted to The Flatiron School for iOS Development
 date: 2015-05-22 19:01:20.000000000 -04:00
 type: post
 published: true
+comments: true
 status: publish
 tags:
 - flatiron school

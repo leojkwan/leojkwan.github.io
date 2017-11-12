@@ -2,7 +2,7 @@
 layout: post
 title: 'Watch Connectivity with Core Data in iOS 10 Part 1'
 type: post
-status: draft
+comments: true
 categories:
 tags:
 - ios

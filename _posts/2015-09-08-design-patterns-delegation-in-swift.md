@@ -2,6 +2,7 @@
 layout: post
 title: 'iOS Design Patterns: Protocols & Delegation'
 date: 2015-09-08 16:01:41.000000000 -04:00
+comments: true
 type: post
 tags:
 - ios

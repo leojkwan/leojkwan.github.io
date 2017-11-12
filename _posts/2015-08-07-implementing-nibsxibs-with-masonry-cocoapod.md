@@ -3,6 +3,8 @@ layout: post
 title: 'How to utilize Nibs/ Xibs for reusable views in Objective-C'
 date: 2015-08-07 14:21:09.000000000 -04:00
 type: post
+comments: true
+
 status: publish
 tags:
 - ios

@@ -3,6 +3,7 @@ layout: post
 title: 'Weeks 5 & 6 at Flatiron School.'
 date: 2015-07-19 16:43:00.000000000 -04:00
 type: post
+comments: true
 published: true
 tags:
 - flatiron school

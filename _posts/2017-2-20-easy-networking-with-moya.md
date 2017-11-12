@@ -3,6 +3,7 @@ layout: post
 title: 'Easy Networking and Testing with Moya'
 type: post
 status: published
+comments: true
 categories:
 tags:
 - ios

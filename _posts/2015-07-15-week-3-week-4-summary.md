@@ -4,7 +4,7 @@ title: 'Week 3 & Week 4 Summary'
 date: 2015-07-15 17:49:41.000000000 -04:00
 type: post
 published: true
-status: publish
+comments: true
 categories:
 - Code
 tags:

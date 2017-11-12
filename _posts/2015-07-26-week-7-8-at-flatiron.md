@@ -3,6 +3,7 @@ layout: post
 title: 'Week 7 & 8 at Flatiron School.'
 date: 2015-07-26 22:04:48.000000000 -04:00
 type: post
+comments: true
 published: true
 status: publish
 tags:

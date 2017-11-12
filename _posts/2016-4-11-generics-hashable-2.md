@@ -2,7 +2,7 @@
 layout: post
 title: Learning in playgrounds with generics and hashable Part 2
 type: post
-status: draft
+comments: true
 categories: null
 tags:
   - ios

@@ -4,6 +4,7 @@ title: 'Weeks 1 & 2 at The Flatiron School.'
 date: 2015-06-12 20:32:00.000000000 -04:00
 type: post
 published: true
+comments: true
 status: publish
 tags:
 - flatiron school
