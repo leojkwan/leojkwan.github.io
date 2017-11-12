@@ -3,8 +3,7 @@ layout: post
 title: 'Living reactively in Swift, before RxSwift. And truly understanding "DisposeBags"'
 type: post
 status: published
-
-
+comments: true
 categories:
 tags:
 - ios

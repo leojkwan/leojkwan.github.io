@@ -4,6 +4,7 @@ title: 'Learning in playgrounds with generics and hashable Part 1'
 type: post
 categories:
 published: true
+comments: true
 status: publish
 tags:
 - ios
