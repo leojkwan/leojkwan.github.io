@@ -6,11 +6,31 @@ layout: default
 {% include analytics.html %}
 
 <div class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
+  <h1 class="post-title">{{ page.title }} </h1>
   <span class="post-date">{{ page.date | date_to_string }}</span>
   {{ content }}
 </div>
 
+{% if page.comments %}
+<div id="disqus_thread"></div>
+<script>
+  
+  var disqus_config = function () {
+  this.page.url = "https://leojkwan.com" + "{{ page.id }}"
+  this.page.identifier = "{{ page.id }}"
+  };
+  (function () { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://leo-kwan-blog.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+{% endif %}
 <div class="date" style="padding-top:50px;">
   Written on {{ page.date | date: "%B %e, %Y" }}
 </div>

@@ -2,7 +2,8 @@
 layout: post
 title: 'Breaking down Custom View Controller Animations with Moves'
 type: post
-status: publishd
+status: published
+comments: true
 categories:
 tags:
 - ios
