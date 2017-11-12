@@ -23,42 +23,6 @@
   font-weight: normal;
 }
 
-@font-face {
-font-family: 'Semplicita Pro Medium';
-src: url("/assets/fonts/Semplicita Pro Medium.otf") format("opentype");
-font-style: normal;
-font-weight: normal;
-}
-
-@font-face {
-font-family: 'Semplicita Pro Regular';
-src: url("/assets/fonts/Semplicita Pro Regular.otf") format("opentype");
-font-style: normal;
-font-weight: normal;
-}
-
-@font-face {
-  font-family: 'Joanna Nova Light';
-  src: url("/assets/fonts/Joanna Nova Light.otf") format("opentype");
-  font-style: normal;
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: 'Joanna Sans Nova Light';
-  src: url("/assets/fonts/Joanna Sans Nova Light.otf") format("opentype");
-  font-style: normal;
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: 'Joanna Sans Nova Regular';
-  src: url("/assets/fonts/Joanna Sans Nova Regular.otf") format("opentype");
-  font-style: normal;
-  font-weight: normal;
-}
-
-
 .post-tags {
   display: block;
   text-align: right;
@@ -274,10 +238,19 @@ h1,h2, h3 {
   letter-spacing: 1.2px;
 }
 
- h4, h5, h6 {
+ h4, h5 {
   font-family: "Gilroy-SemiBold", Helvetica, Arial, sans-serif;
   font-size: 1.2em;
   line-height: 1.5;
+  text-align:left;
+  color: #464F59;
+}
+
+h6 {
+  font-family: "Gilroy-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.3em;
+  line-height: 1.5;
+  font-weight: 600;
   text-align:left;
   color: #464F59;
 }
@@ -322,6 +295,13 @@ h1,h2, h3 {
  * Super small header above the content for site name and short description.
  */
 
+.masthead-title small {
+  font-size: 75%;
+  font-weight: 400;
+  color: #c0c0c0;
+  letter-spacing: 0;
+}
+ 
 .masthead {
   padding-top:    1rem;
   padding-bottom: 1rem;
@@ -340,21 +320,6 @@ h1,h2, h3 {
 
 .masthead-title a {
   color: #505050;
-}
-.masthead-title small {
-  font-size: 75%;
-  font-weight: 400;
-  color: #c0c0c0;
-  letter-spacing: 0;
-}
-
-@media (max-width: 48em) {
-  .masthead-title {
-    text-align: center;
-  }
-  .masthead-title small {
-    display: none;
-  }
 }
 
 
@@ -581,6 +546,7 @@ a.sidebar-nav-item:focus {
 }
 .related-posts li small {
   font-size: 75%;
+  font-weight: 400;
   color: #999;
 }
 .related-posts li a:hover {
