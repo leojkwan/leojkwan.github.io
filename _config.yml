@@ -57,3 +57,5 @@ assets:
     - _assets/javascripts
     - _assets/stylesheets
     - _assets/fonts
+
+theme: jekyll-theme-cayman
